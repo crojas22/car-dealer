@@ -18,7 +18,9 @@ public class Vehicle {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    private String carManufacturer,model, pictureAddress;
+    private String carManufacturer,model, vinNumber, pictureAddress, exteriorColor, interiorColor;
+    @Enumerated(EnumType.STRING)
+    private WheelDrive wheelDrive;
     @Enumerated(EnumType.STRING)
     private CarCondition carCondition;
     @Enumerated(EnumType.STRING)
@@ -45,7 +47,11 @@ public class Vehicle {
 
     public Vehicle(String carManufacturer,
             String model,
+            String vinNumber,
             String pictureAddress,
+            String exteriorColor,
+            String interiorColor,
+            WheelDrive wheelDrive,
             CarCondition carCondition,
             FuelType fuelType,
             BodyType bodyType,
@@ -57,9 +63,14 @@ public class Vehicle {
             int discountedPrice,
             int mpgStreet,
             int mpgHighway) {
+
         this.carManufacturer = carManufacturer;
         this.model = model;
+        this.vinNumber = vinNumber;
         this.pictureAddress = pictureAddress;
+        this.exteriorColor = exteriorColor;
+        this.interiorColor = interiorColor;
+        this.wheelDrive = wheelDrive;
         this.carCondition = carCondition;
         this.fuelType = fuelType;
         this.bodyType = bodyType;

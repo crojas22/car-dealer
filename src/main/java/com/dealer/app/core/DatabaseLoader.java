@@ -24,7 +24,8 @@ public class DatabaseLoader implements ApplicationRunner {
 
         Dealer chrisDealer = new Dealer("Motor World", "1130 SW 9th Way", "Miami", "FL", "33212", "3056667777");
 
-        chrisDealer.addVehicle(new Vehicle("Bmw","328i","/images/bmw.jpeg", CarCondition.NEW, FuelType.GASOLINE, BodyType.SEDAN,
+        chrisDealer.addVehicle(new Vehicle("Bmw","328i","1221343343322","/images/bmw.jpeg",
+                "blue", "white", WheelDrive.RWD ,CarCondition.NEW, FuelType.GASOLINE, BodyType.SEDAN,
                     TransmissionType.AUTOMATIC, 2017, 223332, 5000, 40000, 40000,
                     22, 30
                 ));
