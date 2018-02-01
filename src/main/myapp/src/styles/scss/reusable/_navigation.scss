@@ -1,0 +1,23 @@
+.navbar {
+  svg {
+    color: $primary-color;
+  }
+  span {
+    color: white;
+  }
+  .d-md-block span:first-child {
+    margin-bottom: -7px;
+  }
+  button {
+    background-color: transparent;
+  }
+  .nav-link:hover,
+  .active {
+    background-color: $primary-color;
+    color: white !important;
+  }
+}
+
+.bg-black {
+  background-color: $dark-color;
+}

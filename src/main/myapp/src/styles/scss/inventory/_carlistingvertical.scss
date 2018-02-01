@@ -1,0 +1,77 @@
+.car-listing-vertical {
+  &::before {
+    @include create-before(90%, 1px , null, null, 0, 5%, $light-grey);
+  }
+  h4 {
+    text-overflow: ellipsis;
+    margin-bottom: 0;
+  }
+  .price {
+    @include background-spacing($light-blue, white, 0.10rem 0.70rem, null, relative);
+    display: flex;
+    flex-direction: column;
+    &::before {
+      @include create-before(1.659rem, 3.343745rem, 0, null, null, -0.9rem, $light-blue);
+      transform: skew(-25deg, 0deg);
+      z-index: -1;
+    }
+    & span:first-child {
+      font-size: 0.85rem;
+      text-align: right;
+      text-decoration: line-through;
+    }
+    & span:last-child {
+      margin-top: -0.85rem;
+    }
+  }
+
+  .car-info {
+    & .col-md {
+      padding: 0;
+      & .x {
+        white-space: nowrap;
+      }
+      &:nth-of-type(-1n+3) > .x {
+        width: 85%;
+        padding-right: 1rem;
+      }
+      & div span {
+        color: gray;
+        margin: 0 0.25rem 0 0;
+      }
+      & div:last-of-type {
+        margin-top: -0.80rem;
+      }
+      & svg {
+        margin: 0 0.25rem 0.25rem 0;
+      }
+    }
+  }
+
+  .car-links {
+    text-align: center;
+    & li {
+      padding: 0.10rem 0.50rem;
+      margin: 0 1rem 1rem 0;
+      border: 1px solid $light-grey;
+      border-radius: 1.2rem;
+      & span {
+        color: gray;
+      }
+      & a {
+        display: inline-block;
+        padding: 0.25rem;
+        & svg {
+          margin-bottom: 0.25rem;
+          color: $light-blue;
+        }
+      }
+    }
+    & li:not(:nth-of-type(1)) {
+      &:hover {
+        border-color: $light-blue;
+        color: $light-blue;
+      }
+    }
+  }
+}

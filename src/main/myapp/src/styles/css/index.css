@@ -1,0 +1,329 @@
+@media only screen and (max-width: 576px) {
+  .nav-tab-menu {
+    flex-wrap: wrap;
+    flex-direction: column; }
+  .footer div div:nth-of-type(n+2)::before {
+    content: '';
+    position: absolute;
+    width: 80%;
+    height: 1px;
+    top: 0;
+    left: 10%;
+    background-color: #ccc; }
+  .image-background {
+    height: 30vh; } }
+
+@media only screen and (min-width: 576px) {
+  .footer div div:nth-of-type(n+2)::before {
+    content: '';
+    position: absolute;
+    width: 1px;
+    height: 80%;
+    bottom: 10%;
+    left: 0;
+    background-color: #ccc; }
+  .image-background {
+    height: 50vh; } }
+
+@media only screen and (max-width: 767px) {
+  .why-us [class^='col']:nth-of-type(n+2)::before {
+    content: '';
+    position: absolute;
+    width: 70%;
+    height: 1px;
+    top: 0;
+    left: 15%;
+    background-color: #ccc; }
+  .car-listing-vertical .car-info {
+    padding-left: 1rem;
+    padding-right: 1rem; }
+    .car-listing-vertical .car-info .col-md {
+      border-bottom: 1px solid #ccc; }
+      .car-listing-vertical .car-info .col-md div {
+        padding-bottom: 0.4rem;
+        padding-top: 0.65rem;
+        display: inline-block; } }
+
+@media only screen and (min-width: 768px) {
+  .why-us div div:nth-of-type(n+2)::before {
+    content: '';
+    position: absolute;
+    width: 1px;
+    height: 70%;
+    bottom: 15%;
+    left: 0;
+    background-color: #ccc; }
+  .car-info .col-md:nth-of-type(-1n+3) > .x {
+    border-right: 1px solid #ccc; }
+  .image-background {
+    height: 75vh !important; } }
+
+.navbar svg {
+  color: #cc601a; }
+
+.navbar span {
+  color: white; }
+
+.navbar .d-md-block span:first-child {
+  margin-bottom: -7px; }
+
+.navbar button {
+  background-color: transparent; }
+
+.navbar .nav-link:hover,
+.navbar .active {
+  background-color: #cc601a;
+  color: white !important; }
+
+.bg-black {
+  background-color: #242629; }
+
+.welcome {
+  background-color: #242629; }
+  .welcome h2 > span:last-child {
+    color: #cc601a; }
+
+.image-background {
+  background: url("/images/background/lexusBackground.jpeg") no-repeat center center;
+  background-size: cover; }
+
+ul {
+  list-style: none; }
+
+a:focus {
+  box-shadow: none !important; }
+
+.home-listing .car-info,
+.home-carousel-listing .car-info {
+  display: flex;
+  justify-content: space-between; }
+  .home-listing .car-info::before,
+  .home-carousel-listing .car-info::before {
+    content: '';
+    position: absolute;
+    width: 80%;
+    height: 1px;
+    bottom: 0;
+    left: 10%;
+    background-color: #ccc; }
+
+.home-listing .price,
+.home-carousel-listing .price {
+  background-color: #6c98e1;
+  color: white;
+  padding: 0.15rem;
+  position: relative;
+  z-index: 10; }
+  .home-listing .price::before,
+  .home-carousel-listing .price::before {
+    content: '';
+    position: absolute;
+    width: 1rem;
+    height: 2rem;
+    top: 0;
+    left: -0.5rem;
+    background-color: #6c98e1;
+    transform: skew(-25deg, 0deg);
+    z-index: -1; }
+
+.home-listing .car-info + div svg,
+.home-carousel-listing .car-info + div svg {
+  margin-bottom: 0.25rem; }
+
+.footer {
+  color: white;
+  font-size: 0.80rem; }
+  .footer h6 {
+    margin-bottom: 1rem; }
+  .footer span {
+    color: #ccc;
+    font-weight: bold; }
+
+.social-media svg:hover {
+  cursor: pointer;
+  color: #6c98e1; }
+
+.social-media svg:nth-child(n+2) {
+  margin-left: 0.50rem; }
+
+.why-us svg {
+  color: #cc601a; }
+
+.background-sell-buy {
+  background: url("/images/background/mercedezbackground.jpeg") fixed;
+  background-size: cover;
+  height: 70vh; }
+  .background-sell-buy .col-md-8 {
+    background-color: rgba(204, 96, 26, 0.7); }
+    .background-sell-buy .col-md-8:hover {
+      background-color: #cc601a; }
+    .background-sell-buy .col-md-8 h2 {
+      font-weight: bold; }
+    .background-sell-buy .col-md-8 span {
+      color: white; }
+
+.home-carousel-listing {
+  color: white !important; }
+  .home-carousel-listing > div {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 0 1rem; }
+  .home-carousel-listing img {
+    margin-bottom: 0.75rem; }
+
+.nav-controls .dots {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 0.5rem;
+  position: relative;
+  top: 1px; }
+  .nav-controls .dots .dot {
+    display: block;
+    float: left;
+    padding: 4px; }
+    .nav-controls .dots .dot span {
+      display: block;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background-color: #cccccc; }
+
+.nav-controls button {
+  background-color: transparent;
+  color: #ccc;
+  border: 3px solid transparent; }
+  .nav-controls button:hover {
+    color: #6c98e1;
+    border-color: #6c98e1; }
+
+.nav-tab-menu {
+  padding: 0 0.85rem;
+  display: flex;
+  list-style: none; }
+  .nav-tab-menu .active {
+    background-color: white !important;
+    color: #cc601a !important; }
+  .nav-tab-menu a {
+    color: white !important;
+    background-color: rgba(255, 255, 255, 0.1); }
+
+.inventory > div:first-child {
+  background-size: cover;
+  background: rgba(0, 0, 0, 0.5);
+  position: relative;
+  height: 10rem; }
+  .inventory > div:first-child h2 {
+    position: relative;
+    top: 22%; }
+  .inventory > div:first-child::after {
+    content: "";
+    background: url("/images/background/backgroundNightHighway.jpeg") center;
+    background-size: cover;
+    opacity: 0.5;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1; }
+
+.inventory select {
+  background-color: #f8f9fa; }
+
+.inventory .filter-search-icon svg {
+  color: #ccc; }
+  .inventory .filter-search-icon svg:hover {
+    color: black;
+    cursor: pointer; }
+
+.inventory .filter-search-icon svg:first-child {
+  margin-right: 0.75rem; }
+
+.inventory span {
+  white-space: nowrap;
+  line-height: 2.2; }
+
+.search-options {
+  margin-top: -3rem;
+  z-index: 50; }
+  .search-options form {
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.18); }
+  .search-options form > div:first-child {
+    background-color: #242629;
+    color: white; }
+    .search-options form > div:first-child svg {
+      margin: 0 0.50rem 0.30rem 0; }
+
+.car-listing-vertical::before {
+  content: '';
+  position: absolute;
+  width: 90%;
+  height: 1px;
+  bottom: 0;
+  left: 5%;
+  background-color: #ccc; }
+
+.car-listing-vertical h4 {
+  text-overflow: ellipsis;
+  margin-bottom: 0; }
+
+.car-listing-vertical .price {
+  background-color: #6c98e1;
+  color: white;
+  padding: 0.1rem 0.7rem;
+  position: relative;
+  display: flex;
+  flex-direction: column; }
+  .car-listing-vertical .price::before {
+    content: '';
+    position: absolute;
+    width: 1.659rem;
+    height: 3.34375rem;
+    top: 0;
+    left: -0.9rem;
+    background-color: #6c98e1;
+    transform: skew(-25deg, 0deg);
+    z-index: -1; }
+  .car-listing-vertical .price span:first-child {
+    font-size: 0.85rem;
+    text-align: right;
+    text-decoration: line-through; }
+  .car-listing-vertical .price span:last-child {
+    margin-top: -0.85rem; }
+
+.car-listing-vertical .car-info .col-md {
+  padding: 0; }
+  .car-listing-vertical .car-info .col-md .x {
+    white-space: nowrap; }
+  .car-listing-vertical .car-info .col-md:nth-of-type(-1n+3) > .x {
+    width: 85%;
+    padding-right: 1rem; }
+  .car-listing-vertical .car-info .col-md div span {
+    color: gray;
+    margin: 0 0.25rem 0 0; }
+  .car-listing-vertical .car-info .col-md div:last-of-type {
+    margin-top: -0.80rem; }
+  .car-listing-vertical .car-info .col-md svg {
+    margin: 0 0.25rem 0.25rem 0; }
+
+.car-listing-vertical .car-links {
+  text-align: center; }
+  .car-listing-vertical .car-links li {
+    padding: 0.10rem 0.50rem;
+    margin: 0 1rem 1rem 0;
+    border: 1px solid #ccc;
+    border-radius: 1.2rem; }
+    .car-listing-vertical .car-links li span {
+      color: gray; }
+    .car-listing-vertical .car-links li a {
+      display: inline-block;
+      padding: 0.25rem; }
+      .car-listing-vertical .car-links li a svg {
+        margin-bottom: 0.25rem;
+        color: #6c98e1; }
+  .car-listing-vertical .car-links li:not(:nth-of-type(1)):hover {
+    border-color: #6c98e1;
+    color: #6c98e1; }
+
+.btn-primary {
+  background-color: #6c98e1;
+  border-color: #6c98e1; }

@@ -1,0 +1,17 @@
+.background-sell-buy {
+  background: url("/images/background/mercedezbackground.jpeg") fixed;
+  background-size: cover;
+  height: 70vh;
+  & .col-md-8 {
+    background-color: rgba(204,96,26,.7);
+    &:hover {
+      background-color: $primary-color;
+    }
+    h2 {
+      font-weight: bold;
+    }
+    span {
+      color: white;
+    }
+  }
+}

@@ -1,0 +1,14 @@
+.search-options {
+  margin-top: -3rem;
+  z-index: 50;
+  form {
+    box-shadow: 0 5px 18px rgba(0,0,0,.18);
+  }
+  form > div:first-child {
+    background-color: $dark-color;
+    color: white;
+    svg {
+      margin: 0 0.50rem 0.30rem 0;
+    }
+  }
+}

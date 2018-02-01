@@ -1,0 +1,13 @@
+.nav-tab-menu {
+  padding: 0 0.85rem;
+  display: flex;
+  list-style: none;
+  .active {
+    background-color: white !important;
+    color: $primary-color !important;
+  }
+  a {
+    color: white !important;
+    background-color: $light-dark;
+  }
+}

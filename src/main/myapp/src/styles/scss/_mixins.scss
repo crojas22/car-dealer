@@ -1,0 +1,19 @@
+@mixin create-before($width, $height, $top, $right, $bottom, $left, $color) {
+  content: '';
+  position: absolute;
+  width: $width;
+  height: $height;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+  background-color: $color;
+}
+
+@mixin background-spacing($bg-color, $color, $padding,$margin, $position) {
+  background-color: $bg-color;
+  color: $color;
+  padding: $padding;
+  margin: $margin;
+  position: $position;
+}

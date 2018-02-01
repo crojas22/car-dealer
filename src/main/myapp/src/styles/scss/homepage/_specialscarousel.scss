@@ -1,0 +1,41 @@
+.home-carousel-listing {
+  color: white !important;
+  & > div {
+    background-color: $light-dark;
+    padding: 0 1rem;
+  }
+  img {
+    margin-bottom: 0.75rem;
+  }
+}
+
+.nav-controls {
+  .dots {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 0.5rem;
+    position: relative;
+    top: 1px;
+    .dot {
+      display: block;
+      float: left;
+      padding: 4px;
+      & span {
+        display: block;
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background-color: #cccccc;
+      }
+    }
+  }
+  button {
+    background-color: transparent;
+    color: $light-grey;
+    border: 3px solid transparent;
+    &:hover {
+      color: $light-blue;
+      border-color: $light-blue;
+    }
+  }
+}

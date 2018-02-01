@@ -1,0 +1,43 @@
+.inventory {
+  & > div:first-child {
+    background-size: cover;
+    background: rgba(0,0,0,0.5);
+    position: relative;
+    height: 10rem;
+    h2 {
+      position: relative;
+      top: 22%;
+    }
+    &::after {
+      content: "";
+      background: url('/images/background/backgroundNightHighway.jpeg') center;
+      background-size: cover;
+      opacity: 0.5;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      position: absolute;
+      z-index: -1;
+    }
+  }
+  select {
+    background-color: $light-silver;
+  }
+  .filter-search-icon{
+    svg {
+      color: $light-grey;
+      &:hover {
+        color: black;
+        cursor: pointer;
+      }
+    }
+    svg:first-child {
+      margin-right: 0.75rem;
+    }
+  }
+  span {
+    white-space: nowrap;
+    line-height: 2.2;
+  }
+}

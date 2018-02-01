@@ -1,0 +1,9 @@
+.social-media {
+  svg:hover {
+    cursor: pointer;
+    color: $light-blue;
+  }
+  svg:nth-child(n+2) {
+    margin-left: 0.50rem;
+  }
+}
