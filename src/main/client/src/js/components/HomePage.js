@@ -14,6 +14,10 @@ class HomePage extends React.Component {
         }
     }
 
+    componentWillMount() {
+        
+    }
+
     render() {
         return(
             <div>
