@@ -2,20 +2,20 @@ import React from 'react';
 import MdDirectionsCar from 'react-icons/lib/md/directions-car';
 import MdLocalGasStation from 'react-icons/lib/md/local-gas-station';
 
-const CarListing = ({imgSource, carModel, price, mainClass, gas, engine}) => {
+const CarListing = ({pictureAddress, model, year, price, mainClass, mpgStreet, mpgHighway, transmissionType, carManufacturer}) => {
     return(
         <a className={mainClass}>
-            <img className="img-fluid" src={imgSource} alt="car"/>
+            <img className="img-fluid" src={pictureAddress} alt="car"/>
             <div>
                 <div className="car-info py-3 position-relative">
                     <div className="text-truncate py-1">
                         {
-                            carModel
+                            `${year} ${carManufacturer} ${model}`
                         }
                     </div>
                     <div className="price py-1">
                         {
-                            price
+                            `$${price}`
                         }
                     </div>
                 </div>
@@ -24,7 +24,7 @@ const CarListing = ({imgSource, carModel, price, mainClass, gas, engine}) => {
                         <li className="mr-4">
                             <span>
                                 {
-                                    gas
+                                    `${mpgStreet}/${mpgHighway}`
                                 }
                             </span>
                             <MdLocalGasStation/>
@@ -32,7 +32,7 @@ const CarListing = ({imgSource, carModel, price, mainClass, gas, engine}) => {
                         <li>
                             <span>
                                 {
-                                    engine
+                                    transmissionType
                                 }
                             </span>
                             <MdDirectionsCar/>

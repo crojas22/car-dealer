@@ -1,4 +1,5 @@
 import React from 'react';
+import CarListing from "../components/reusables/CarListing";
 
 export const renderElements = (times, element, classes) => {
     let array = [],
@@ -13,4 +14,12 @@ export const renderElements = (times, element, classes) => {
         )
     }
     return array
+};
+
+export const renderCarListing = (array, classes, mainClass) => {
+    return array.map(each => (
+        <div key={each.id} className={classes}>
+            <CarListing {...each} mainClass={mainClass}/>
+        </div>
+    ))
 };

@@ -44,7 +44,9 @@ class HomePage extends React.Component {
                     </div>
                 </div>
                 <div className="container-fluid mb-3">
-                    <RenderCarListing currentTab={this.state.currentTabActive}/>
+                    <RenderCarListing newCars={this.props.newCars} usedCars={this.props.usedCars}
+                        currentTab={this.state.currentTabActive}/>
+
                     <div className="d-flex w-100 my-4">
                         <BtnLink title="SHOW ALL" to="inventory" classes="btn-primary d-block mx-auto"/>
                     </div>
@@ -58,10 +60,17 @@ class HomePage extends React.Component {
     }
 }
 
+const mapStateToProps = state => {
+    return {
+        newCars: state.newCarData,
+        usedCars: state.usedCarData
+    }
+};
+
 const mapDispatchToProps = dispatch => {
     return bindActionCreators({
         fetchDataAction
     }, dispatch)
 };
 
-export default connect(null, mapDispatchToProps)(HomePage);
+export default connect(mapStateToProps, mapDispatchToProps)(HomePage);

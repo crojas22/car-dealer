@@ -8,7 +8,7 @@ const CarListingVertical = () => {
     return(
         <div className="car-listing-vertical row mt-5 position-relative">
             <div className="col-md-4 mt-1 mb-4">
-                <img className="img-fluid" src="/images/bmw.jpeg" alt="car"/>
+                <img className="img-fluid" src="/images/2017bmw328i/bmw.jpeg" alt="car"/>
             </div>
             <div className="col-md-8 pl-md-0">
                 <div className="d-flex justify-content-between">
