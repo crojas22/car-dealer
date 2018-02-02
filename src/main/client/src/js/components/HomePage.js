@@ -18,7 +18,7 @@ class HomePage extends React.Component {
     }
 
     componentWillMount() {
-        this.props.fetchDataAction("home/inventory", "GET");
+        this.props.fetchDataAction("home/inventory?page=0&size=6", "GET");
     }
 
     render() {
@@ -52,7 +52,7 @@ class HomePage extends React.Component {
                     </div>
                 </div>
                 <BackgroundSellBuy />
-                <SpecialsCarousel/>
+                <SpecialsCarousel newCars={this.props.newCars}/>
                 <WhyUs/>
                 <BackgroundSellBuy />
             </div>

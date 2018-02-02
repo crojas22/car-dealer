@@ -1,7 +1,7 @@
 import React from 'react';
-import CarListing from "../reusables/CarListing";
+import { withRouter } from "react-router-dom";
 import NavControls from "../reusables/NavControls";
-import { renderElements } from "../../functions/HelperFunctions";
+import { renderCarListing } from "../../functions/HelperFunctions";
 
 class SpecialsCarousel extends React.Component {
     constructor(props) {
@@ -9,47 +9,48 @@ class SpecialsCarousel extends React.Component {
         this.state = {
             displayFrom: 0,
             displayTo: 1,
-            perPage: 1
+            perPage: 1,
+            width: window.innerWidth
         };
     }
 
     componentDidMount() {
-        this.updateWindowSize("resize");
-        this.updateWindowSize("load");
+        this.windowSizeEventListener("resize");
+        this.updateWindowSize();
     }
 
-    updateWindowSize(eventVariable) {
-        window.addEventListener(eventVariable, () => {
-            if (window.innerWidth < 768) {
-                this.setState({
-                    displayFrom: 0,
-                    perPage: 1,
-                    displayTo: 1
-                });
-            } if (window.innerWidth > 768) {
-                this.setState({
-                    displayFrom: 0,
-                    perPage: 2,
-                    displayTo: 2
-                });
-            } if (window.innerWidth > 1200) {
-                this.setState({
-                    displayFrom: 0,
-                    perPage: 3,
-                    displayTo: 3
-                });
-            }
+    updateWindowSize() {
+        if (window.innerWidth < 768) {
+            this.setState({
+                displayFrom: 0,
+                perPage: 1,
+                displayTo: 1
+            });
+        } if (window.innerWidth > 768) {
+            this.setState({
+                displayFrom: 0,
+                perPage: 2,
+                displayTo: 2
+            });
+        } if (window.innerWidth > 1200) {
+            this.setState({
+                displayFrom: 0,
+                perPage: 3,
+                displayTo: 3
+            });
+        }
+    }
+
+    windowSizeEventListener(listener) {
+        window.addEventListener(listener, () => {
+            this.updateWindowSize();
         })
     }
 
     render() {
         const { displayFrom, displayTo, perPage } = this.state;
 
-        const elementToAdd = <CarListing engine="Automatic "
-                                         carModel="BMW 535i 2016" price="$45K" mainClass="home-carousel-listing" gas="67/56 "
-                                         imgSource="/images/bmw.jpeg"/>;
-
-        const arrayToDisplay = renderElements(6, elementToAdd, "col-8 col-md-5 col-xl-3 mx-auto");
+        const arrayToDisplay = renderCarListing(this.props.newCars, "col-8 col-md-5 col-xl-3 mx-auto", "home-carousel-listing");
 
         const forward = () => {
             this.setState({
@@ -90,4 +91,4 @@ class SpecialsCarousel extends React.Component {
     }
 }
 
-export default SpecialsCarousel;
+export default withRouter(SpecialsCarousel);
