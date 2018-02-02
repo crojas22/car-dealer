@@ -1,8 +1,9 @@
 import { combineReducers } from 'redux';
-import { carData } from "./carData";
+import { newCarData, usedCarData } from "./carData";
 
 const reducer = combineReducers({
-    carData
+    newCarData,
+    usedCarData
 });
 
 export default reducer;

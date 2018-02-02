@@ -1,8 +1,15 @@
 import { fetchDataApi } from "../api";
 
-export const getCarData = payload => {
+const getNewCarData = payload => {
     return {
-        type: "GET_CAR_DATA",
+        type: "NEW_CAR_DATA",
+        payload
+    }
+};
+
+const getUsedCarData = payload => {
+    return {
+        type: "USED_CAR_DATA",
         payload
     }
 };
@@ -10,7 +17,11 @@ export const getCarData = payload => {
 export const fetchDataAction = (url, method) => {
     return (dispatch) => {
         fetchDataApi(url, method)
-            .then(resp => dispatch(getCarData(resp._embedded.vehicles)))
+            .then(response => response.json())
+            .then(resp => {
+                dispatch(getNewCarData(resp.newVehicles.content));
+                dispatch(getUsedCarData(resp.usedVehicles.content));
+            })
             .catch(error => console.log(error))
     }
 };

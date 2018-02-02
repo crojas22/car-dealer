@@ -29,6 +29,16 @@ public class DatabaseLoader implements ApplicationRunner {
                     TransmissionType.AUTOMATIC, 2017, 223332, 5000, 40000, 40000,
                     22, 30
                 ));
+        chrisDealer.addVehicle(new Vehicle("Bmw","328i","1221343343322","/images/bmw.jpeg",
+                "blue", "white", WheelDrive.RWD ,CarCondition.USED, FuelType.GASOLINE, BodyType.SEDAN,
+                TransmissionType.AUTOMATIC, 2016, 223332, 5000, 40000, 40000,
+                22, 30
+        ));
+        chrisDealer.addVehicle(new Vehicle("Bmw","328i","1221343343322","/images/bmw.jpeg",
+                "blue", "white", WheelDrive.RWD ,CarCondition.USED, FuelType.GASOLINE, BodyType.SEDAN,
+                TransmissionType.AUTOMATIC, 2017, 223332, 5000, 40000, 40000,
+                22, 30
+        ));
         this.dealerRepo.save(chrisDealer);
     }
 }

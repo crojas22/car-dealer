@@ -4,5 +4,4 @@ export const fetchDataApi = (url, method) => {
     return fetch(urlApi(url), {
         method: method
     })
-        .then(resp => resp.json())
 };

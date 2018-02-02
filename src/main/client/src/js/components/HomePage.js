@@ -18,7 +18,7 @@ class HomePage extends React.Component {
     }
 
     componentWillMount() {
-        this.props.fetchDataAction("vehicles", "GET");
+        this.props.fetchDataAction("home/inventory", "GET");
     }
 
     render() {
