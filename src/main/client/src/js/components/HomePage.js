@@ -1,10 +1,13 @@
 import React from 'react';
+import { connect } from "react-redux";
+import { bindActionCreators } from 'redux';
 import RenderLinks from "./reusables/RenderLinks";
 import RenderCarListing from "./homepage/RenderCarListing";
 import { BtnLink } from "./reusables/Buttons";
 import WhyUs from "./homepage/WhyUs";
 import SpecialsCarousel from "./homepage/SpecialsCarousel";
 import BackgroundSellBuy from "./homepage/BackgroundSellBuy";
+import { fetchDataAction } from "../actions";
 
 class HomePage extends React.Component {
     constructor(props) {
@@ -15,7 +18,7 @@ class HomePage extends React.Component {
     }
 
     componentWillMount() {
-        
+        this.props.fetchDataAction("vehicles", "GET");
     }
 
     render() {
@@ -55,4 +58,10 @@ class HomePage extends React.Component {
     }
 }
 
-export default HomePage;
+const mapDispatchToProps = dispatch => {
+    return bindActionCreators({
+        fetchDataAction
+    }, dispatch)
+};
+
+export default connect(null, mapDispatchToProps)(HomePage);

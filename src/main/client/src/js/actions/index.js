@@ -1,3 +1,4 @@
+import { fetchDataApi } from "../api";
 
 export const getCarData = payload => {
     return {
@@ -9,7 +10,7 @@ export const getCarData = payload => {
 export const fetchDataAction = (url, method) => {
     return (dispatch) => {
         fetchDataApi(url, method)
-            .then(resp => console.log(resp))
-            .catch(error => console.log(error.message))
+            .then(resp => dispatch(getCarData(resp._embedded.vehicles)))
+            .catch(error => console.log(error))
     }
 };
