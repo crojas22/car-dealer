@@ -1,7 +1,8 @@
-const urlApi = rest => `http://localhost:8080/api/v1/${rest}`;
+// const urlApi = rest => `http://localhost:8080/api/v1/${rest}`;
 
 export const fetchDataApi = (url, method) => {
-    return fetch(urlApi(url), {
+    return fetch(url, {
         method: method
     })
+        .then(response => response.json())
 };

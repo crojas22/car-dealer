@@ -65,7 +65,7 @@
     @include create-before(1px, 70%, null, null, 15%, 0, $light-grey);
   }
 
-  .car-info .col-md:nth-of-type(-1n+3) > .x {
+  .car-info .col-md:nth-of-type(-1n+3) > .icon-info {
     border-right: 1px solid $light-grey;
   }
 

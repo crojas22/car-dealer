@@ -28,10 +28,10 @@
   .car-info {
     & .col-md {
       padding: 0;
-      & .x {
+      & .icon-info {
         white-space: nowrap;
       }
-      &:nth-of-type(-1n+3) > .x {
+      &:nth-of-type(-1n+3) > .icon-info {
         width: 85%;
         padding-right: 1rem;
       }

@@ -53,7 +53,7 @@
     bottom: 15%;
     left: 0;
     background-color: #ccc; }
-  .car-info .col-md:nth-of-type(-1n+3) > .x {
+  .car-info .col-md:nth-of-type(-1n+3) > .icon-info {
     border-right: 1px solid #ccc; }
   .image-background {
     height: 75vh !important; } }
@@ -292,9 +292,9 @@ a:focus {
 
 .car-listing-vertical .car-info .col-md {
   padding: 0; }
-  .car-listing-vertical .car-info .col-md .x {
+  .car-listing-vertical .car-info .col-md .icon-info {
     white-space: nowrap; }
-  .car-listing-vertical .car-info .col-md:nth-of-type(-1n+3) > .x {
+  .car-listing-vertical .car-info .col-md:nth-of-type(-1n+3) > .icon-info {
     width: 85%;
     padding-right: 1rem; }
   .car-listing-vertical .car-info .col-md div span {

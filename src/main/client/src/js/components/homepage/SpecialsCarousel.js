@@ -1,7 +1,6 @@
 import React from 'react';
-import { withRouter } from "react-router-dom";
-import NavControls from "../reusables/NavControls";
 import { renderCarListing } from "../../functions/HelperFunctions";
+import { NavControls } from "../reusables/NavControls";
 
 class SpecialsCarousel extends React.Component {
     constructor(props) {
@@ -9,8 +8,7 @@ class SpecialsCarousel extends React.Component {
         this.state = {
             displayFrom: 0,
             displayTo: 1,
-            perPage: 1,
-            width: window.innerWidth
+            perPage: 1
         };
     }
 
@@ -91,4 +89,4 @@ class SpecialsCarousel extends React.Component {
     }
 }
 
-export default withRouter(SpecialsCarousel);
+export default SpecialsCarousel;

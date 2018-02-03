@@ -1,9 +1,9 @@
 import React from 'react';
-import { BtnInput } from "./Buttons";
+import { BtnInput, BtnLink } from "./Buttons";
 import FaChevronLeft from 'react-icons/lib/fa/chevron-left';
 import FaChevronRight from 'react-icons/lib/fa/chevron-right';
 
-const NavControls = ({add, remove}) => {
+export const NavControls = ({add, remove}) => {
     return(
         <div className="nav-controls">
             <div className="text-center mt-4">
@@ -19,4 +19,22 @@ const NavControls = ({add, remove}) => {
     )
 };
 
-export default NavControls;
+export const InventoryNavigation = ({links, fetch}) => {
+    const navLinks = [];
+    if ("prev" in links) navLinks.push(
+        <BtnInput key="prev" title={<FaChevronLeft/>} onClick={() => fetch(links.prev.href, "GET")}
+                  classes="btn-outline-primary"/>
+    );
+    if ("next" in links) navLinks.push(
+        <BtnInput key="next" title={<FaChevronRight/>} onClick={() => fetch(links.next.href, "GET")}
+                 classes="btn-outline-primary"/>
+    );
+
+    return(
+        <div>
+            {
+                navLinks
+            }
+        </div>
+    )
+};

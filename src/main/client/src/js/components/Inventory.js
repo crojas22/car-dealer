@@ -1,11 +1,19 @@
 import React from 'react';
+import { connect } from "react-redux";
+import { bindActionCreators } from 'redux';
 import SearchOptions from "./inventory/SearchOptions";
 import SelectOptions from "./reusables/SelectOptions";
 import FaThLarge from "react-icons/lib/fa/th-large";
 import FaThList from "react-icons/lib/fa/th-list";
-import VerticalList from "./inventory/VerticalList";
+import { fetchCarInventory } from "../actions";
+import { renderVerticalListing } from "../functions/HelperFunctions";
+import { InventoryNavigation } from "./reusables/NavControls";
 
 class Inventory extends React.Component {
+    componentWillMount() {
+        this.props.fetchCarInventory("http://localhost:8080/api/v1/vehicles?page=0&size=6&sort=year,desc", "GET");
+    }
+
     render() {
         return(
             <div className="inventory p">
@@ -29,7 +37,10 @@ class Inventory extends React.Component {
                                     <FaThList size={30}/>
                                 </div>
                             </div>
-                            <VerticalList />
+                            {
+                                renderVerticalListing(this.props.inventory)
+                            }
+                            <InventoryNavigation fetch={this.props.fetchCarInventory} links={this.props.links}/>
                         </div>
                     </div>
                 </div>
@@ -38,4 +49,17 @@ class Inventory extends React.Component {
     }
 }
 
-export default Inventory;
+const mapStateToProps = state => {
+    return {
+        inventory: state.wholeInventoryData,
+        links: state.wholeInventoryLinks
+    }
+};
+
+const mapDispatchToProps = dispatch => {
+    return bindActionCreators({
+        fetchCarInventory
+    }, dispatch)
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Inventory);

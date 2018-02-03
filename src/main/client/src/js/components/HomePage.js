@@ -18,7 +18,7 @@ class HomePage extends React.Component {
     }
 
     componentWillMount() {
-        this.props.fetchDataAction("home/inventory?page=0&size=6", "GET");
+        this.props.fetchDataAction("http://localhost:8080/api/v1/home/inventory?page=0&size=6", "GET");
     }
 
     render() {
@@ -69,7 +69,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return bindActionCreators({
-        fetchDataAction
+        fetchDataAction,
     }, dispatch)
 };
 
