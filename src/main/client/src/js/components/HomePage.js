@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from "react-redux";
 import { bindActionCreators } from 'redux';
-import RenderLinks from "./reusables/RenderLinks";
+import { RenderLinks } from "./reusables/RenderLinks";
 import RenderCarListing from "./homepage/RenderCarListing";
 import { BtnLink } from "./reusables/Buttons";
 import WhyUs from "./homepage/WhyUs";

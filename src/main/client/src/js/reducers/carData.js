@@ -33,3 +33,12 @@ export const wholeInventoryLinks = (state={}, action) => {
             return state;
     }
 };
+
+export const individualCarData = (state={}, action) => {
+    switch (action.type) {
+        case "CAR_INFO":
+            return action.payload;
+        default:
+            return state;
+    }
+};

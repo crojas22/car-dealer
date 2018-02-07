@@ -1,39 +1,19 @@
 import { fetchDataApi } from "../api";
 
-const getNewCarData = payload => {
+const getData = (payload, type) => {
     return {
-        type: "NEW_CAR_DATA",
-        payload
+        payload,
+        type
     }
 };
 
-const getUsedCarData = payload => {
-    return {
-        type: "USED_CAR_DATA",
-        payload
-    }
-};
-
-const getWholeInventory = payload => {
-    return {
-        type: "GET_INVENTORY_DATA",
-        payload
-    }
-};
-
-const getWholeInventoryNavLinks = payload => {
-    return {
-        type: "WHOLE_INVENTORY_LINKS",
-        payload
-    }
-};
 
 export const fetchDataAction = (url, method) => {
     return (dispatch) => {
         fetchDataApi(url, method)
             .then(resp => {
-                dispatch(getNewCarData(resp.newVehicles.content));
-                dispatch(getUsedCarData(resp.usedVehicles.content));
+                dispatch(getData(resp.newVehicles.content, "NEW_CAR_DATA"));
+                dispatch(getData(resp.usedVehicles.content, "USED_CAR_DATA"));
             })
             .catch(error => console.log(error))
     }
@@ -43,10 +23,17 @@ export const fetchCarInventory = (url, method) => {
     return (dispatch) => {
         fetchDataApi(url, method)
             .then(resp => {
-                console.log(resp)
-                dispatch(getWholeInventory(resp._embedded.vehicles));
-                dispatch(getWholeInventoryNavLinks(resp._links));
+                dispatch(getData(resp._embedded.vehicles, "GET_INVENTORY_DATA"));
+                dispatch(getData(resp._links, "WHOLE_INVENTORY_LINKS"));
             })
+            .catch(error => console.log(error))
+    }
+};
+
+export const fetchCarInfo = (url, method) => {
+    return (dispatch) => {
+        fetchDataApi(url, method)
+            .then(resp => dispatch(getData(resp, "CAR_INFO")))
             .catch(error => console.log(error))
     }
 };

@@ -1,7 +1,7 @@
 import React from 'react';
 import PhoneContactInfo from "./navigation/PhoneContactInfo";
 import AddressInfo from "./navigation/AddressInfo";
-import RenderLinks from "./reusables/RenderLinks";
+import { RenderLinks } from "./reusables/RenderLinks";
 import { BtnInput } from "./reusables/Buttons";
 
 class Navigation extends React.Component {

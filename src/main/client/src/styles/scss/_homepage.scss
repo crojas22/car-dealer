@@ -12,11 +12,13 @@
 
 // Main Listing
 
-ul {
+ul,
+ol {
   list-style: none;
 }
 
-a:focus {
+a:focus,
+button:focus {
   box-shadow: none !important;
 }
 

@@ -12,8 +12,18 @@
 @import "inventory";
 @import "inventory/searchoptions";
 @import "inventory/carlistingvertical";
+@import "reusable/navlinks";
+@import "individualcarpage";
+
+* {
+  margin: 0; padding: 0; box-sizing: border-box;
+}
 
 .btn-primary {
   background-color: $light-blue;
   border-color: $light-blue;
+}
+
+button:focus {
+  box-shadow: none !important;
 }

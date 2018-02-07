@@ -4,6 +4,7 @@ import HomePage from "./HomePage";
 import Navigation from "./Navigation";
 import Inventory from "./Inventory";
 import Footer from "./reusables/Footer";
+import IndividualCarPage from "./IndividualCarPage";
 
 class App extends Component {
 
@@ -15,6 +16,7 @@ class App extends Component {
                     <Route exact path='/' render={() => (<HomePage />)}/>
                     <Route exact path='/home' render={() => (<HomePage />)}/>
                     <Route exact path='/inventory' render={() => (<Inventory />)}/>
+                    <Route exact path='/inventory/:car' render={props => (<IndividualCarPage {...props}/>)}/>
                 </Switch>
                 <Footer />
             </div>

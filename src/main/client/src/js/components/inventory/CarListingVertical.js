@@ -1,22 +1,27 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import FaRoad from 'react-icons/lib/fa/road';
 import MdLocalGasStation from 'react-icons/lib/md/local-gas-station';
 import GoCalendar from 'react-icons/lib/go/calendar';
 import MdDirectionsCar from 'react-icons/lib/md/directions-car';
 import { Colmd } from "../reusables/Div";
+import { RenderCarInfoLinks } from "../reusables/RenderLinks";
 
-const CarListingVertical = ({carCondition, pictureAddress, year ,carManufacturer, model, discountedPrice, price, mileage, fuelType, transmissionType, stockNumber}) => {
+const CarListingVertical = ({_links, carCondition, pictureAddress, year ,carManufacturer, model, discountedPrice, price, mileage, fuelType, transmissionType, stockNumber}) => {
+
+    const carAddress = `/inventory/${_links.self.href.split("/").pop()}`;
+
     return(
         <div className="car-listing-vertical row mt-5 position-relative">
-            <div className="col-md-4 mt-1 mb-4">
+            <Link to={`${carAddress}`} className="col-md-4 mt-1 mb-4">
                 <img className="img-fluid" src={pictureAddress} alt="car"/>
-            </div>
+            </Link>
             <div className="col-md-8 pl-md-0">
                 <div className="d-flex justify-content-between">
                     <div >
-                        <a>
-                            <h4>{` ${carManufacturer} ${model}`}</h4>
-                        </a>
+                        <Link to={carAddress}>
+                            <h4>{`${year} ${carManufacturer} ${model}`}</h4>
+                        </Link>
                     </div>
                     <div className="price mt-1">
                         <span>{`$${price}`}</span>
@@ -53,18 +58,7 @@ const CarListingVertical = ({carCondition, pictureAddress, year ,carManufacturer
                         <div>{transmissionType}</div>
                     </Colmd>
                 </div>
-                <ul className="car-links p-0 my-4 d-sm-flex">
-                    <li className="bg-light">
-                        <div>
-                            <span>stock# </span> {stockNumber}
-                        </div>
-                    </li>
-                    <li>
-                        <a>
-                            <GoCalendar/> Schedule a test drive
-                        </a>
-                    </li>
-                </ul>
+                <RenderCarInfoLinks />
             </div>
         </div>
     )

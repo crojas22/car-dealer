@@ -17,6 +17,11 @@ class SpecialsCarousel extends React.Component {
         this.updateWindowSize();
     }
 
+    componentWillUnmount() {
+        this.windowSizeEventListener("resize");
+        this.updateWindowSize();
+    }
+
     updateWindowSize() {
         if (window.innerWidth < 768) {
             this.setState({

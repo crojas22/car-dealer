@@ -9,3 +9,18 @@ export const Colmd = props => (
         </div>
     </div>
 );
+
+export const TrTd = props => (
+    <tr>
+        <td>
+            {
+                props.title
+            }
+        </td>
+        <td>
+            {
+                props.value
+            }
+        </td>
+    </tr>
+);

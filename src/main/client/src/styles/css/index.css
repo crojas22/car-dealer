@@ -87,10 +87,12 @@
   background: url("/images/background/lexusBackground.jpeg") no-repeat center center;
   background-size: cover; }
 
-ul {
+ul,
+ol {
   list-style: none; }
 
-a:focus {
+a:focus,
+button:focus {
   box-shadow: none !important; }
 
 .home-listing .car-info,
@@ -262,9 +264,15 @@ a:focus {
   left: 5%;
   background-color: #ccc; }
 
-.car-listing-vertical h4 {
-  text-overflow: ellipsis;
-  margin-bottom: 0; }
+.car-listing-vertical a {
+  color: black;
+  text-decoration: none;
+  position: relative; }
+  .car-listing-vertical a:hover {
+    color: #6c98e1; }
+  .car-listing-vertical a h4 {
+    text-overflow: ellipsis;
+    margin-bottom: 0; }
 
 .car-listing-vertical .price {
   background-color: #6c98e1;
@@ -305,25 +313,77 @@ a:focus {
   .car-listing-vertical .car-info .col-md svg {
     margin: 0 0.25rem 0.25rem 0; }
 
-.car-listing-vertical .car-links {
+.car-links {
   text-align: center; }
-  .car-listing-vertical .car-links li {
+  .car-links li {
     padding: 0.10rem 0.50rem;
     margin: 0 1rem 1rem 0;
     border: 1px solid #ccc;
     border-radius: 1.2rem; }
-    .car-listing-vertical .car-links li span {
+    .car-links li span {
+      line-height: 2; }
+    .car-links li span {
       color: gray; }
-    .car-listing-vertical .car-links li a {
+    .car-links li a {
       display: inline-block;
       padding: 0.25rem; }
-      .car-listing-vertical .car-links li a svg {
+      .car-links li a svg {
         margin-bottom: 0.25rem;
         color: #6c98e1; }
-  .car-listing-vertical .car-links li:not(:nth-of-type(1)):hover {
+  .car-links li:not(:nth-of-type(1)):hover {
     border-color: #6c98e1;
     color: #6c98e1; }
+
+.render-nav-links {
+  display: flex;
+  justify-content: center; }
+  .render-nav-links button {
+    text-transform: capitalize;
+    margin-right: 1rem; }
+
+.individual-car-page ol {
+  border-bottom: 1px solid #ccc; }
+  .individual-car-page ol li a {
+    color: rgba(0, 0, 0, 0.5);
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    text-decoration: none; }
+
+.individual-car-page .side-panel div:first-of-type {
+  display: flex;
+  color: white;
+  background-color: #6c98e1;
+  justify-content: center; }
+  .individual-car-page .side-panel div:first-of-type span:first-child {
+    align-self: center;
+    font-size: 0.90rem;
+    margin-right: 0.5rem; }
+  .individual-car-page .side-panel div:first-of-type span:last-child {
+    font-size: 1.5rem; }
+
+.individual-car-page .side-panel div:nth-of-type(2) {
+  color: white;
+  font-size: 0.90rem; }
+
+.individual-car-page .side-panel table {
+  font-size: 0.85rem;
+  background-color: #f8f9fa; }
+  .individual-car-page .side-panel table tr td:first-of-type {
+    color: gray; }
+  .individual-car-page .side-panel table tr td:last-of-type {
+    text-transform: uppercase; }
+  .individual-car-page .side-panel table td {
+    border-top: none !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
 
 .btn-primary {
   background-color: #6c98e1;
   border-color: #6c98e1; }
+
+button:focus {
+  box-shadow: none !important; }
