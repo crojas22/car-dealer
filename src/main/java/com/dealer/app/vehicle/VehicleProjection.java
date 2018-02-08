@@ -12,6 +12,9 @@ public interface VehicleProjection {
     String getModel();
     String getVinNumber();
     String getPictureAddress();
+    String getPicture2();
+    String getPicture3();
+    String getPicture4();
     String getExteriorColor();
     String getInteriorColor();
     WheelDrive getwheelDrive();

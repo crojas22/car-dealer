@@ -349,16 +349,19 @@ button:focus {
     font-size: 0.8rem;
     text-decoration: none; }
 
-.individual-car-page .side-panel div:first-of-type {
+.individual-car-page .side-panel div {
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.18); }
+
+.individual-car-page .side-panel div div:first-of-type {
   display: flex;
   color: white;
   background-color: #6c98e1;
   justify-content: center; }
-  .individual-car-page .side-panel div:first-of-type span:first-child {
+  .individual-car-page .side-panel div div:first-of-type span:first-child {
     align-self: center;
     font-size: 0.90rem;
     margin-right: 0.5rem; }
-  .individual-car-page .side-panel div:first-of-type span:last-child {
+  .individual-car-page .side-panel div div:first-of-type span:last-child {
     font-size: 1.5rem; }
 
 .individual-car-page .side-panel div:nth-of-type(2) {

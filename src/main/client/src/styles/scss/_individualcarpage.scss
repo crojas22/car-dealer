@@ -10,7 +10,10 @@
   }
 
   .side-panel {
-    & div:first-of-type {
+    & div {
+      box-shadow: 0 5px 18px rgba(0,0,0,.18);
+    }
+    & div div:first-of-type {
       display: flex;
       color: white;
       background-color: $light-blue;

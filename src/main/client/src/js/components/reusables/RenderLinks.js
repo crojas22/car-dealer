@@ -18,7 +18,7 @@ export const RenderBreadcrumps = ({title}) => (
     <ol className="pl-0 py-3 d-flex my-3">
         <li className="breadcrumb-item"><NavLink to="/home">Home</NavLink></li>
         <li className="breadcrumb-item"><NavLink to="/inventory">Inventory</NavLink></li>
-        <li className="breadcrumb-item"><NavLink to="/">{title}</NavLink></li>
+        <li className="breadcrumb-item"><a >{title}</a></li>
     </ol>
 );
 
