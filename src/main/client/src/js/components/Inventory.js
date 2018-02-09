@@ -5,20 +5,20 @@ import SearchOptions from "./inventory/SearchOptions";
 import SelectOptions from "./reusables/SelectOptions";
 import FaThLarge from "react-icons/lib/fa/th-large";
 import FaThList from "react-icons/lib/fa/th-list";
-import { fetchCarInventory } from "../actions";
+import { fetchCarInventory, fetchData } from "../actions";
 import { renderCarListing, renderNavLinks, renderVerticalListing } from "../functions/HelperFunctions";
 
 class Inventory extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            horizontal: false,
-            filterValue: ""
+            horizontal: false
         }
     }
 
     componentWillMount() {
         this.fetchInventory("year", "desc");
+        this.props.fetchData("http://localhost:8080/api/v1/inventory/options", "GET", "GET_SEARCH_OPTIONS");
     }
 
     sortInventory() {
@@ -41,7 +41,7 @@ class Inventory extends React.Component {
                 <div className="container-fluid">
                     <div className="row">
                         <div className="search-options col-lg-3">
-                            <SearchOptions />
+                            <SearchOptions options={this.props.options}/>
                         </div>
                         <div className="col-lg-9 col-sm-12">
                             <div className=" d-flex mt-5 pb-5 border-bottom justify-content-between">
@@ -49,7 +49,7 @@ class Inventory extends React.Component {
                                     <span className="text-muted mr-2">Sort by: </span>
                                     <SelectOptions
                                         selectRefVal={input => this._filter = input}
-                                        options={["Date: newest first","Date: oldest first","Price: lowest first", "Price: highest first"]}
+                                        options={["Year: newest first","Year: oldest first","Price: lowest first", "Price: highest first"]}
                                         selectOnChange={() => this.sortInventory()}/>
                                 </div>
                                 <div className="filter-search-icon">
@@ -85,13 +85,15 @@ class Inventory extends React.Component {
 const mapStateToProps = state => {
     return {
         inventory: state.wholeInventoryData,
-        links: state.wholeInventoryLinks
+        links: state.wholeInventoryLinks,
+        options: state.inventorySearchOptions
     }
 };
 
 const mapDispatchToProps = dispatch => {
     return bindActionCreators({
-        fetchCarInventory
+        fetchCarInventory,
+        fetchData
     }, dispatch)
 };
 

@@ -18,7 +18,7 @@ public class Vehicle {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    private String carManufacturer,model, vinNumber, pictureAddress, picture2, picture3, picture4;
+    private String carManufacturer, model, vinNumber, pictureAddress, picture2, picture3, picture4;
     @Enumerated(EnumType.STRING)
     private InteriorColor interiorColor;
     @Enumerated(EnumType.STRING)

@@ -1,7 +1,10 @@
 package com.dealer.app.web.controller;
 
+import com.dealer.app.vehicle.BodyType;
 import com.dealer.app.vehicle.CarCondition;
 import com.dealer.app.vehicle.VehicleService;
+import com.dealer.app.vehicle.enums.CarManufacturer;
+import com.dealer.app.vehicle.enums.CarModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -30,6 +33,16 @@ public class VehicleController {
         response.put("newVehicles", this.vehicleService.getVehicleByCondition(CarCondition.NEW,pageable));
         response.put("usedVehicles", this.vehicleService.getVehicleByCondition(CarCondition.USED,pageable));
 
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/inventory/options" , method = RequestMethod.GET)
+    public ResponseEntity<Map<String, Object>> getSearchOptions() {
+        Map<String, Object> response = new HashMap<>();
+        response.put("condition", CarCondition.values());
+        response.put("body", BodyType.values());
+        response.put("make", this.vehicleService.enumToString(CarManufacturer.values()));
+        response.put("model", this.vehicleService.enumToString(CarModel.values()));
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 }

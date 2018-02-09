@@ -42,3 +42,12 @@ export const individualCarData = (state={}, action) => {
             return state;
     }
 };
+
+export const inventorySearchOptions = (state={}, action) => {
+    switch (action.type) {
+        case "GET_SEARCH_OPTIONS":
+            return action.payload;
+        default:
+            return state;
+    }
+};

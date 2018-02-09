@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from 'redux';
 import MdLocalGasStation from 'react-icons/lib/md/local-gas-station';
 import { RenderBreadcrumps, RenderCarInfoLinks, RenderLinks } from "./reusables/RenderLinks";
-import { fetchCarInfo } from "../actions";
+import { fetchData } from "../actions";
 import { TrTd } from "./reusables/Div";
 import { renderFeatures } from "../functions/HelperFunctions";
 
@@ -18,7 +18,9 @@ class IndividualCarPage extends React.Component {
     }
 
     componentWillMount() {
-        this.props.fetchCarInfo(`http://localhost:8080/api/v1/vehicles/${this.props.match.params.car}?projection=features`, 'GET');
+        this.props.fetchData(
+            `http://localhost:8080/api/v1/vehicles/${this.props.match.params.car}?projection=features`, 'GET', "CAR_INFO"
+        );
     }
 
     changeMainPic(event) {
@@ -125,7 +127,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return bindActionCreators({
-        fetchCarInfo
+        fetchData
     }, dispatch)
 };
 

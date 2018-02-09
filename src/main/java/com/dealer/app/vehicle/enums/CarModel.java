@@ -1,17 +1,18 @@
-package com.dealer.app.vehicle;
+package com.dealer.app.vehicle.enums;
 
-public enum FuelType {
-    GASOLINE("Gasoline"), DIESEL("Diesel"), ELECTRIC("Electric"), HYBRID("Hybrid");
+public enum CarModel {
+    BMWFIVE("535i"), BWMTHREE("328i"), MERCEDESC("C-Class");
 
     private String name;
 
-    FuelType(String name) {
+    CarModel(String name) {
         this.name = name;
     }
 
     public String getName() {
         return name;
     }
+
 
     @Override
     public String toString() {

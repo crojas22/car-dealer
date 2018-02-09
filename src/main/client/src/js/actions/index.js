@@ -30,10 +30,10 @@ export const fetchCarInventory = (url, method) => {
     }
 };
 
-export const fetchCarInfo = (url, method) => {
+export const fetchData = (url, method, reducer) => {
     return (dispatch) => {
         fetchDataApi(url, method)
-            .then(resp => dispatch(getData(resp, "CAR_INFO")))
+            .then(resp => dispatch(getData(resp, reducer)))
             .catch(error => console.log(error))
     }
 };

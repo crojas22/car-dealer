@@ -2,7 +2,7 @@ import React from 'react';
 import MdDirectionsCar from 'react-icons/lib/md/directions-car';
 import SelectOptions from "../reusables/SelectOptions";
 
-const SearchOptions = () => {
+const SearchOptions = ({options}) => {
     return(
         <form>
             <div className="p-4 text-center mb-4">
@@ -11,7 +11,7 @@ const SearchOptions = () => {
             <div className="container-fluid">
                 <div className="row">
                     <div className="col-md-6 col-sm-6 col-lg-12 p-2">
-                        <SelectOptions options={["Condition", "New", "Used"]}/>
+                        <SelectOptions options={["Condition"].concat(options.condition)}/>
                     </div>
                     <div className="col-md-6 col-sm-6 col-lg-12 p-2">
                         <SelectOptions options={["Body", "Sedan", "Coupe", "SUV"]}/>

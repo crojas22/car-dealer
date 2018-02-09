@@ -3,12 +3,13 @@ package com.dealer.app.core;
 import com.dealer.app.dealer.Dealer;
 import com.dealer.app.dealer.DealerRepo;
 import com.dealer.app.vehicle.*;
+import com.dealer.app.vehicle.enums.CarManufacturer;
+import com.dealer.app.vehicle.enums.CarModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
-import java.util.Arrays;
 
 @Component
 public class DatabaseLoader implements ApplicationRunner {
@@ -26,7 +27,7 @@ public class DatabaseLoader implements ApplicationRunner {
 
         Dealer chrisDealer = new Dealer("Motor World", "1130 SW 9th Way", "Miami", "FL", "33212", "3056667777");
 
-        Vehicle vehicle = new Vehicle("BMW","535i","1221343343322",
+        Vehicle vehicle = new Vehicle(CarManufacturer.BMW.toString(), CarModel.BMWFIVE.toString(),"1221343343322",
                 "/images/2018bmw535i/2018bmw535i.jpeg", "/images/2018bmw535i/bmwfront.jpeg",
                 "/images/2018bmw535i/bmwinside.jpeg", "/images/2018bmw535i/bmwside.jpeg",
                 ExteriorColor.WHITE, InteriorColor.BEIGE, WheelDrive.RWD ,CarCondition.NEW, FuelType.GASOLINE, BodyType.SEDAN,
@@ -44,7 +45,7 @@ public class DatabaseLoader implements ApplicationRunner {
 
         chrisDealer.addVehicle(vehicle);
 
-        Vehicle vehicle1 = new Vehicle("BMW","535i","1221343343322",
+        Vehicle vehicle1 = new Vehicle(CarManufacturer.BMW.toString(), CarModel.BMWFIVE.toString(),"1221343343322",
                 "/images/2018bmw535i/2018bmw535i.jpeg", "/images/2018bmw535i/bmwfront.jpeg",
                 "/images/2018bmw535i/bmwinside.jpeg", "/images/2018bmw535i/bmwside.jpeg",
                 ExteriorColor.WHITE, InteriorColor.BLACK, WheelDrive.RWD ,CarCondition.NEW, FuelType.GASOLINE, BodyType.SEDAN,
@@ -63,7 +64,7 @@ public class DatabaseLoader implements ApplicationRunner {
 
         chrisDealer.addVehicle(vehicle1);
 
-        Vehicle vehicle2 = new Vehicle("BMW","328i","1221343343322",
+        Vehicle vehicle2 = new Vehicle(CarManufacturer.BMW.toString(), CarModel.BWMTHREE.toString(),"1221343343322",
                 "/images/2017bmw328i/bmw.jpeg", "/images/2017bmw328i/2017bmw328ifront.jpeg",
                 "/images/2017bmw328i/2017bmw328iside.jpeg", "/images/2017bmw328i/bmwinterior.jpeg",
                 ExteriorColor.BLUE, InteriorColor.BLACK, WheelDrive.RWD ,CarCondition.NEW, FuelType.GASOLINE, BodyType.SEDAN,
@@ -81,7 +82,7 @@ public class DatabaseLoader implements ApplicationRunner {
 
         chrisDealer.addVehicle(vehicle2);
 
-        Vehicle vehicle3 = new Vehicle("BMW","328i","1221343343322",
+        Vehicle vehicle3 = new Vehicle(CarManufacturer.BMW.toString(), CarModel.BWMTHREE.toString(),"1221343343322",
                 "/images/2017bmw328i/bmw.jpeg","/images/2017bmw328i/2017bmw328ifront.jpeg",
                 "/images/2017bmw328i/2017bmw328iside.jpeg", "/images/2017bmw328i/bmwinterior.jpeg",
                 ExteriorColor.BLUE, InteriorColor.GREY, WheelDrive.RWD ,CarCondition.NEW, FuelType.GASOLINE, BodyType.SEDAN,
@@ -97,7 +98,7 @@ public class DatabaseLoader implements ApplicationRunner {
 
         chrisDealer.addVehicle(vehicle3);
 
-        Vehicle vehicle4 = new Vehicle("Merdedes-Benz","C-class Coupe","1221343343322",
+        Vehicle vehicle4 = new Vehicle(CarManufacturer.MERCEDES.toString(), CarModel.MERCEDESC.toString(),"1221343343322",
                 "/images/2016mercedesCclass/mercedes.jpeg", "/images/2016mercedesCclass/mercedezfront.jpeg",
                 "/images/2016mercedesCclass/mercedezinterior.jpeg","/images/2016mercedesCclass/mercedezrear.jpeg",
                 ExteriorColor.BLACK, InteriorColor.GREY, WheelDrive.RWD ,CarCondition.NEW, FuelType.GASOLINE, BodyType.COUPE,
@@ -112,7 +113,7 @@ public class DatabaseLoader implements ApplicationRunner {
 
         chrisDealer.addVehicle(vehicle4);
 
-        Vehicle vehicle5 = new Vehicle("Merdedes-Benz","C-class Coupe","1221343343322",
+        Vehicle vehicle5 = new Vehicle(CarManufacturer.MERCEDES.toString(), CarModel.MERCEDESC.toString(),"1221343343322",
                 "/images/2016mercedesCclass/mercedes.jpeg","/images/2016mercedesCclass/mercedezfront.jpeg",
                 "/images/2016mercedesCclass/mercedezinterior.jpeg","/images/2016mercedesCclass/mercedezrear.jpeg",
                 ExteriorColor.BLACK, InteriorColor.BEIGE, WheelDrive.RWD ,CarCondition.NEW, FuelType.GASOLINE, BodyType.COUPE,
@@ -129,7 +130,7 @@ public class DatabaseLoader implements ApplicationRunner {
 
         chrisDealer.addVehicle(vehicle5);
 
-        Vehicle vehicle6 = new Vehicle("BMW","328i","1221343343322",
+        Vehicle vehicle6 = new Vehicle(CarManufacturer.BMW.toString(), CarModel.BWMTHREE.toString(),"1221343343322",
                 "/images/2017bmw328i/bmw.jpeg", "/images/2017bmw328i/2017bmw328ifront.jpeg",
                 "/images/2017bmw328i/2017bmw328iside.jpeg", "/images/2017bmw328i/bmwinterior.jpeg",
                 ExteriorColor.BLUE, InteriorColor.WHITE, WheelDrive.RWD ,CarCondition.USED, FuelType.GASOLINE, BodyType.SEDAN,
@@ -145,7 +146,7 @@ public class DatabaseLoader implements ApplicationRunner {
 
         chrisDealer.addVehicle(vehicle6);
 
-        Vehicle vehicle7 = new Vehicle("BMW","328i","1221343343322",
+        Vehicle vehicle7 = new Vehicle(CarManufacturer.BMW.toString(), CarModel.BWMTHREE.toString(),"1221343343322",
                 "/images/2017bmw328i/bmw.jpeg", "/images/2017bmw328i/2017bmw328ifront.jpeg",
                 "/images/2017bmw328i/2017bmw328iside.jpeg", "/images/2017bmw328i/bmwinterior.jpeg",
                 ExteriorColor.BLUE, InteriorColor.BLACK, WheelDrive.RWD ,CarCondition.USED, FuelType.GASOLINE, BodyType.SEDAN,
@@ -159,7 +160,7 @@ public class DatabaseLoader implements ApplicationRunner {
 
         chrisDealer.addVehicle(vehicle7);
 
-        Vehicle vehicle8 = new Vehicle("BMW","535i","1221343343322",
+        Vehicle vehicle8 = new Vehicle(CarManufacturer.BMW.toString(), CarModel.BMWFIVE.toString(),"1221343343322",
                 "/images/2018bmw535i/2018bmw535i.jpeg", "/images/2018bmw535i/bmwfront.jpeg",
                 "/images/2018bmw535i/bmwinside.jpeg", "/images/2018bmw535i/bmwside.jpeg",
                 ExteriorColor.WHITE, InteriorColor.BEIGE, WheelDrive.RWD ,CarCondition.USED, FuelType.GASOLINE, BodyType.SEDAN,
@@ -173,7 +174,7 @@ public class DatabaseLoader implements ApplicationRunner {
 
         chrisDealer.addVehicle(vehicle8);
 
-        Vehicle vehicle9 = new Vehicle("Merdedes-Benz","C-class Coupe","1221343343322",
+        Vehicle vehicle9 = new Vehicle(CarManufacturer.MERCEDES.toString(), CarModel.MERCEDESC.toString(),"1221343343322",
                 "/images/2016mercedesCclass/mercedes.jpeg", "/images/2016mercedesCclass/mercedezfront.jpeg",
                 "/images/2016mercedesCclass/mercedezinterior.jpeg","/images/2016mercedesCclass/mercedezrear.jpeg",
                 ExteriorColor.BLACK, InteriorColor.GREY, WheelDrive.RWD ,CarCondition.USED, FuelType.GASOLINE, BodyType.COUPE,
@@ -187,7 +188,7 @@ public class DatabaseLoader implements ApplicationRunner {
 
         chrisDealer.addVehicle(vehicle9);
 
-        Vehicle vehicle10 = new Vehicle("BMW","535i","1221343343322",
+        Vehicle vehicle10 = new Vehicle(CarManufacturer.BMW.toString(), CarModel.BMWFIVE.toString(),"1221343343322",
                 "/images/2018bmw535i/2018bmw535i.jpeg", "/images/2018bmw535i/bmwfront.jpeg",
                 "/images/2018bmw535i/bmwinside.jpeg", "/images/2018bmw535i/bmwside.jpeg",
                 ExteriorColor.WHITE, InteriorColor.BEIGE, WheelDrive.RWD ,CarCondition.USED, FuelType.GASOLINE, BodyType.SEDAN,
