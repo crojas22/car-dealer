@@ -5,6 +5,7 @@ import com.dealer.app.vehicle.CarCondition;
 import com.dealer.app.vehicle.VehicleService;
 import com.dealer.app.vehicle.enums.CarManufacturer;
 import com.dealer.app.vehicle.enums.CarModel;
+import com.dealer.app.vehicle.enums.CarYear;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -43,6 +44,7 @@ public class VehicleController {
         response.put("body", BodyType.values());
         response.put("make", this.vehicleService.enumToString(CarManufacturer.values()));
         response.put("model", this.vehicleService.enumToString(CarModel.values()));
+        response.put("year", this.vehicleService.enumToInt(CarYear.values()));
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 }

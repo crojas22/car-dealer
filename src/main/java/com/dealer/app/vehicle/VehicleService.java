@@ -1,5 +1,6 @@
 package com.dealer.app.vehicle;
 
+import com.dealer.app.vehicle.enums.CarYear;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -25,6 +26,12 @@ public class VehicleService {
     public <T> List<String> enumToString(T[] array) {
         return Arrays.stream(array)
                 .map(Object::toString)
+                .collect(Collectors.toList());
+    }
+
+    public List<Integer> enumToInt(CarYear[] array) {
+        return Arrays.stream(array)
+                .map(e -> (e.getYear()))
                 .collect(Collectors.toList());
     }
 }

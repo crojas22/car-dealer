@@ -14,19 +14,19 @@ const SearchOptions = ({options}) => {
                         <SelectOptions options={["Condition"].concat(options.condition)}/>
                     </div>
                     <div className="col-md-6 col-sm-6 col-lg-12 p-2">
-                        <SelectOptions options={["Body", "Sedan", "Coupe", "SUV"]}/>
+                        <SelectOptions options={["Body"].concat(options.body)}/>
                     </div>
                     <div className="col-md-6 col-sm-6 col-lg-12 p-2">
-                        <SelectOptions options={["Make", "BMW", "Ford", "Honda", "Kia", "Nissan", "Toyota"]}/>
+                        <SelectOptions options={["Make"].concat(options.make)}/>
                     </div>
                     <div className="col-md-6 col-sm-6 col-lg-12 p-2">
-                        <SelectOptions options={["Model", "Accord", "Camry", "Civic", "Explorer", "Pilot", "Soul"]}/>
+                        <SelectOptions options={["Model"].concat(options.model)}/>
                     </div>
+                    {/*<div className="col-md-6 col-sm-6 col-lg-12 p-2">*/}
+                        {/*<SelectOptions options={["Max Mileage", "< 5000", "5000-10000", "10000-20000", "20000-25000", "> 25000"]}/>*/}
+                    {/*</div>*/}
                     <div className="col-md-6 col-sm-6 col-lg-12 p-2">
-                        <SelectOptions options={["Max Mileage", "< 5000", "5000-10000", "10000-20000", "20000-25000", "> 25000"]}/>
-                    </div>
-                    <div className="col-md-6 col-sm-6 col-lg-12 p-2">
-                        <SelectOptions options={["Year", "2018", "2017", "2016", "2015", "2014"]}/>
+                        <SelectOptions options={["Year"].concat(options.year)}/>
                     </div>
                 </div>
             </div>
