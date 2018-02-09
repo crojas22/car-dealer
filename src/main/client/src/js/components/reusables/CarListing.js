@@ -2,9 +2,9 @@ import React from 'react';
 import MdDirectionsCar from 'react-icons/lib/md/directions-car';
 import MdLocalGasStation from 'react-icons/lib/md/local-gas-station';
 
-const CarListing = ({pictureAddress, model, year, price, mainClass, mpgStreet, mpgHighway, transmissionType, carManufacturer}) => {
+const CarListing = ({pictureAddress, model, year, price, mainClass, mpgStreet, mpgHighway, transmissionType, carManufacturer, id}) => {
     return(
-        <a className={mainClass}>
+        <a href={`/inventory/${id}`} className={mainClass}>
             <img className="img-fluid" src={pictureAddress} alt="car"/>
             <div>
                 <div className="car-info py-3 position-relative">

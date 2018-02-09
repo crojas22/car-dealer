@@ -9,25 +9,28 @@
     }
   }
 
+  .col img {
+    cursor: pointer;
+  }
   .side-panel {
-    & div {
+    & > div:first-of-type {
       box-shadow: 0 5px 18px rgba(0,0,0,.18);
-    }
-    & div div:first-of-type {
-      display: flex;
-      color: white;
-      background-color: $light-blue;
-      justify-content: center;
-      & span:first-child {
-        align-self: center;
-        font-size: 0.90rem;
-        margin-right: 0.5rem;
+      & > div:first-of-type {
+        display: flex;
+        color: white;
+        background-color: $light-blue;
+        justify-content: center;
+        & span:first-child {
+          align-self: center;
+          font-size: 0.90rem;
+          margin-right: 0.5rem;
+        }
+        & span:last-child {
+          font-size: 1.5rem;
+        }
       }
-      & span:last-child {
-        font-size: 1.5rem;
-      }
     }
-    & div:nth-of-type(2) {
+    & > div > div:nth-of-type(2) {
       color: white;
       font-size: 0.90rem;
     }
@@ -45,6 +48,45 @@
         border-top: none !important;
         border-bottom: 1px solid rgba(0,0,0,0.1);
       }
+    }
+
+    // Gas info
+    & > div:nth-of-type(2) {
+      padding: 0.80rem 0.90rem;
+      border: 3px solid $light-silver;
+      & > div:nth-of-type(2) {
+        margin: 0 1rem;
+        svg {
+          @include height-width(2.5rem, 2.5rem);
+        }
+        @include flex-center;
+        border-radius: 50%;
+        @include height-width(3.5rem, 3.5rem);
+        background-color: $primary-color;
+      }
+      & > div:first-of-type,
+      & > div:last-of-type {
+        align-self: center;
+        & > span:first-of-type {
+          text-align: center;
+          font-weight: bold;
+          font-size: 1.25rem;
+        }
+        & > span:last-of-type {
+          font-size: 0.8rem;
+        }
+        span {
+          display: block;
+        }
+      }
+    }
+
+  }
+
+  .features-tab {
+    svg {
+      color: $primary-color;
+      margin: 0 0.5rem 0.25rem 0;
     }
   }
 }

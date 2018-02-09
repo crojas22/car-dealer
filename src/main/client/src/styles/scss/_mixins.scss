@@ -17,3 +17,14 @@
   margin: $margin;
   position: $position;
 }
+
+@mixin flex-center() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin height-width($height, $width) {
+  height: $height !important;
+  width: $width;
+}

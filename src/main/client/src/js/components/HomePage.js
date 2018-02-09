@@ -47,8 +47,8 @@ class HomePage extends React.Component {
                     <RenderCarListing newCars={this.props.newCars} usedCars={this.props.usedCars}
                         currentTab={this.state.currentTabActive}/>
 
-                    <div className="d-flex w-100 my-4">
-                        <BtnLink title="SHOW ALL" to="inventory" classes="btn-primary d-block mx-auto"/>
+                    <div className={"w-100 my-4 " + (this.state.currentTabActive === "Search Inventory" ? "d-none": "d-flex")}>
+                        <BtnLink title="SHOW ALL" to="inventory" classes="btn-primary mx-auto" onClick={() => window.scrollTo(0,0)}/>
                     </div>
                 </div>
                 <BackgroundSellBuy />

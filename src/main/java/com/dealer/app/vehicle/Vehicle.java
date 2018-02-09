@@ -38,8 +38,8 @@ public class Vehicle {
     @OneToMany(mappedBy = "vehicle", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Feature> features;
 
-    @JsonIgnore
     @ManyToOne
+    @JsonIgnore
     private Dealer dealer;
 
     {

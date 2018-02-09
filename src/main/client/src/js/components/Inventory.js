@@ -12,12 +12,24 @@ class Inventory extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            horizontal: false
+            horizontal: false,
+            filterValue: ""
         }
     }
 
     componentWillMount() {
-        this.props.fetchCarInventory("http://localhost:8080/api/v1/vehicles?page=0&size=6&sort=year,desc", "GET");
+        this.fetchInventory("year", "desc");
+    }
+
+    sortInventory() {
+        if (this._filter.value.endsWith("oldest first")) this.fetchInventory("year", "asc");
+        else if (this._filter.value.endsWith("lowest first")) this.fetchInventory("price", "asc");
+        else if (this._filter.value.endsWith("highest first")) this.fetchInventory("price", "desc");
+        else this.fetchInventory("year", "desc");
+    }
+
+    fetchInventory(sort, direction) {
+        this.props.fetchCarInventory(`http://localhost:8080/api/v1/vehicles?page=0&size=6&sort=${sort},${direction}`, "GET");
     }
 
     render() {
@@ -36,7 +48,9 @@ class Inventory extends React.Component {
                                 <div className="d-flex">
                                     <span className="text-muted mr-2">Sort by: </span>
                                     <SelectOptions
-                                        options={["Date: newest first","Date: oldest first","Price: lowest first", "Price: highest first"]}/>
+                                        selectRefVal={input => this._filter = input}
+                                        options={["Date: newest first","Date: oldest first","Price: lowest first", "Price: highest first"]}
+                                        selectOnChange={() => this.sortInventory()}/>
                                 </div>
                                 <div className="filter-search-icon">
                                     <FaThLarge size={30} color={(this.state.horizontal ? "black":null)}

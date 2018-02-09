@@ -1,8 +1,8 @@
 import React from 'react';
 import PhoneContactInfo from "./navigation/PhoneContactInfo";
 import AddressInfo from "./navigation/AddressInfo";
-import { RenderLinks } from "./reusables/RenderLinks";
 import { BtnInput } from "./reusables/Buttons";
+import { NavLink } from "react-router-dom";
 
 class Navigation extends React.Component {
 
@@ -28,8 +28,10 @@ class Navigation extends React.Component {
                 </div>
                 <div className="navbar navbar-expand-md navbar-light bg-light p-0">
                     <div className="collapse navbar-collapse">
-                        <RenderLinks links={["Home", "Inventory"]} classUL="navbar-nav"
-                                     classA=" nav-link" />
+                        <ul className="navbar-nav">
+                            <NavLink exact to="/" className="nav-link btn rounded-0 p-3 font-weight-bold">Home</NavLink>
+                            <NavLink to="/inventory" className="nav-link btn rounded-0 p-3 font-weight-bold">Inventory</NavLink>
+                        </ul>
                     </div>
                 </div>
             </nav>

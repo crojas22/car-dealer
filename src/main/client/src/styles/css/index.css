@@ -132,6 +132,9 @@ button:focus {
 .home-carousel-listing .car-info + div svg {
   margin: 0 0 0.25rem 0.25rem; }
 
+.search-inventory svg {
+  margin: 0 0.50rem 0.30rem 0; }
+
 .footer {
   color: white;
   font-size: 0.80rem; }
@@ -203,7 +206,17 @@ button:focus {
   list-style: none; }
   .nav-tab-menu .active {
     background-color: white !important;
-    color: #cc601a !important; }
+    color: #cc601a !important;
+    position: relative; }
+    .nav-tab-menu .active::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 4px;
+      top: -4px;
+      right: 0;
+      left: 0;
+      background-color: #cc601a; }
   .nav-tab-menu a {
     color: white !important;
     background-color: rgba(255, 255, 255, 0.1); }
@@ -349,22 +362,24 @@ button:focus {
     font-size: 0.8rem;
     text-decoration: none; }
 
-.individual-car-page .side-panel div {
+.individual-car-page .col img {
+  cursor: pointer; }
+
+.individual-car-page .side-panel > div:first-of-type {
   box-shadow: 0 5px 18px rgba(0, 0, 0, 0.18); }
+  .individual-car-page .side-panel > div:first-of-type > div:first-of-type {
+    display: flex;
+    color: white;
+    background-color: #6c98e1;
+    justify-content: center; }
+    .individual-car-page .side-panel > div:first-of-type > div:first-of-type span:first-child {
+      align-self: center;
+      font-size: 0.90rem;
+      margin-right: 0.5rem; }
+    .individual-car-page .side-panel > div:first-of-type > div:first-of-type span:last-child {
+      font-size: 1.5rem; }
 
-.individual-car-page .side-panel div div:first-of-type {
-  display: flex;
-  color: white;
-  background-color: #6c98e1;
-  justify-content: center; }
-  .individual-car-page .side-panel div div:first-of-type span:first-child {
-    align-self: center;
-    font-size: 0.90rem;
-    margin-right: 0.5rem; }
-  .individual-car-page .side-panel div div:first-of-type span:last-child {
-    font-size: 1.5rem; }
-
-.individual-car-page .side-panel div:nth-of-type(2) {
+.individual-car-page .side-panel > div > div:nth-of-type(2) {
   color: white;
   font-size: 0.90rem; }
 
@@ -379,6 +394,40 @@ button:focus {
     border-top: none !important;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
 
+.individual-car-page .side-panel > div:nth-of-type(2) {
+  padding: 0.80rem 0.90rem;
+  border: 3px solid #f8f9fa; }
+  .individual-car-page .side-panel > div:nth-of-type(2) > div:nth-of-type(2) {
+    margin: 0 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    height: 3.5rem !important;
+    width: 3.5rem;
+    background-color: #cc601a; }
+    .individual-car-page .side-panel > div:nth-of-type(2) > div:nth-of-type(2) svg {
+      height: 2.5rem !important;
+      width: 2.5rem; }
+  .individual-car-page .side-panel > div:nth-of-type(2) > div:first-of-type,
+  .individual-car-page .side-panel > div:nth-of-type(2) > div:last-of-type {
+    align-self: center; }
+    .individual-car-page .side-panel > div:nth-of-type(2) > div:first-of-type > span:first-of-type,
+    .individual-car-page .side-panel > div:nth-of-type(2) > div:last-of-type > span:first-of-type {
+      text-align: center;
+      font-weight: bold;
+      font-size: 1.25rem; }
+    .individual-car-page .side-panel > div:nth-of-type(2) > div:first-of-type > span:last-of-type,
+    .individual-car-page .side-panel > div:nth-of-type(2) > div:last-of-type > span:last-of-type {
+      font-size: 0.8rem; }
+    .individual-car-page .side-panel > div:nth-of-type(2) > div:first-of-type span,
+    .individual-car-page .side-panel > div:nth-of-type(2) > div:last-of-type span {
+      display: block; }
+
+.individual-car-page .features-tab svg {
+  color: #cc601a;
+  margin: 0 0.5rem 0.25rem 0; }
+
 * {
   margin: 0;
   padding: 0;
@@ -390,3 +439,9 @@ button:focus {
 
 button:focus {
   box-shadow: none !important; }
+
+a:hover {
+  text-decoration: none; }
+
+a {
+  color: black; }

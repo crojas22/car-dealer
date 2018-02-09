@@ -5,6 +5,10 @@
   .active {
     background-color: white !important;
     color: $primary-color !important;
+    position: relative;
+    &::before {
+      @include create-before(100%, 4px, -4px, 0, null, 0, $primary-color)
+    }
   }
   a {
     color: white !important;
