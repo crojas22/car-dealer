@@ -203,6 +203,22 @@ public class DatabaseLoader implements ApplicationRunner {
 
         chrisDealer.addVehicle(vehicle10);
 
+
+        Vehicle vehicle11 = new Vehicle(CarManufacturer.MERCEDES.toString(), CarModel.MERCEDESC.toString(),"1221343343322",
+                "/images/2016mercedesCclass/mercedes.jpeg", "/images/2016mercedesCclass/mercedezfront.jpeg",
+                "/images/2016mercedesCclass/mercedezinterior.jpeg","/images/2016mercedesCclass/mercedezrear.jpeg",
+                ExteriorColor.BLACK, InteriorColor.GREY, WheelDrive.RWD ,CarCondition.USED, FuelType.GASOLINE, BodyType.SEDAN,
+                TransmissionType.AUTOMATIC, CarYear.NINETEEN.getYear(), 223332, 0, 75000, 50000,
+                25, 30
+        );
+
+        vehicle11.addFeatures(new Feature("MP3 interface"));
+        vehicle11.addFeatures(new Feature("Alloy wheels"));
+        vehicle11.addFeatures(new Feature("Navigation system"));
+
+        chrisDealer.addVehicle(vehicle11);
+
+
         this.dealerRepo.save(chrisDealer);
     }
 }

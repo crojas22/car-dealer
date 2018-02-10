@@ -24,8 +24,8 @@ const CarListingVertical = ({_links, carCondition, pictureAddress, year ,carManu
                         </Link>
                     </div>
                     <div className="price mt-1">
-                        <span>{`$${price}`}</span>
                         <span>{`$${discountedPrice}`}</span>
+                        <span>{`$${price}`}</span>
                     </div>
                 </div>
                 <div className="car-info row d-md-flex my-md-4 mx-md-2 justify-content-md-between">

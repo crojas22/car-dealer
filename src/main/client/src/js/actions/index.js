@@ -19,21 +19,12 @@ export const fetchDataAction = (url, method) => {
     }
 };
 
-export const fetchCarInventory = (url, method) => {
-    return (dispatch) => {
-        fetchDataApi(url, method)
-            .then(resp => {
-                dispatch(getData(resp._embedded.vehicles, "GET_INVENTORY_DATA"));
-                dispatch(getData(resp._links, "WHOLE_INVENTORY_LINKS"));
-            })
-            .catch(error => console.log(error))
-    }
-};
-
 export const fetchData = (url, method, reducer) => {
     return (dispatch) => {
         fetchDataApi(url, method)
-            .then(resp => dispatch(getData(resp, reducer)))
+            .then(resp => {
+                dispatch(getData(resp, reducer))
+            })
             .catch(error => console.log(error))
     }
 };

@@ -19,7 +19,7 @@ export const usedCarData = (state=[], action) => {
 export const wholeInventoryData = (state=[], action) => {
     switch (action.type) {
         case "GET_INVENTORY_DATA":
-            return action.payload;
+            return action.payload._embedded.vehicles;
         default:
             return state;
     }
@@ -27,8 +27,8 @@ export const wholeInventoryData = (state=[], action) => {
 
 export const wholeInventoryLinks = (state={}, action) => {
     switch (action.type) {
-        case "WHOLE_INVENTORY_LINKS":
-            return action.payload;
+        case "GET_INVENTORY_DATA":
+            return action.payload._links;
         default:
             return state;
     }

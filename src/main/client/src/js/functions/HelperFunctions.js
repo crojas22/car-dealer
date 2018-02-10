@@ -12,12 +12,15 @@ export const renderCarListing = (array, classes, mainClass) => {
     ))
 };
 
-export const renderVerticalListing = array => array.map((each, index) => <CarListingVertical key={index} {...each}/>);
+export const renderVerticalListing = (array=[]) => array.map((each, index) => <CarListingVertical key={index} {...each}/>);
 
-export const renderNavLinks = (array, object, func) => array
+export const renderNavLinks = (array=[], object={}, func, uri) => array
     .filter(each => each in object)
     .map(each => <BtnInput key={each} classes="btn-primary" title={each} onClick={() => {
-        func(object[each].href, "GET");
+        let url = object[each].href;
+        if (uri.length > 1) url += `&${uri.slice(1).join("")}`;
+
+        func(url, "GET", "GET_INVENTORY_DATA");
         window.scrollTo(0,0);
     }}/>);
 
