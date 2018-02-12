@@ -12,9 +12,9 @@ const CarListingVertical = ({_links, carCondition, pictureAddress, year ,carManu
     const carAddress = `/inventory/${_links.self.href.split("/").pop()}`;
 
     return(
-        <div className="car-listing-vertical row mt-5 position-relative">
+        <div className="car-listing-vertical row mt-4 position-relative">
             <Link to={`${carAddress}`} className="col-md-4 mt-1 mb-4">
-                <img className="img-fluid" src={pictureAddress} alt="car"/>
+                <img className="img-fluid w-100" src={pictureAddress} alt="car"/>
             </Link>
             <div className="col-md-8 pl-md-0">
                 <div className="d-flex justify-content-between">
@@ -28,7 +28,7 @@ const CarListingVertical = ({_links, carCondition, pictureAddress, year ,carManu
                         <span>{`$${price}`}</span>
                     </div>
                 </div>
-                <div className="car-info row d-md-flex my-md-4 mx-md-2 justify-content-md-between">
+                <div className="car-info row d-md-flex my-md-3 mx-md-2 justify-content-md-between">
                     <Colmd >
                         <div>
                             <FaRoad/>

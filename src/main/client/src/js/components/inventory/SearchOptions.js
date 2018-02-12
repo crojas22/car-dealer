@@ -1,39 +1,32 @@
 import React from 'react';
 import MdDirectionsCar from 'react-icons/lib/md/directions-car';
-import SelectOptions from "../reusables/SelectOptions";
 import { BtnSubmit } from "../reusables/Buttons";
+import SearchOptionsCategories from "./SearchOptionsCategories";
+import { getCounter } from "../../functions/HelperFunctions";
 
-const SearchOptions = ({options, condition, body, make, model, year, handleSubmit}) => {
+const SearchOptions = ({array}) => {
+
+    const counter = getCounter(array);
+
     return(
-        <form onSubmit={handleSubmit}>
-            <div className="p-4 text-center mb-4">
+        <form >
+            <div className="p-4 mb-2 text-center">
                 <h5><MdDirectionsCar size={30}/>Search Options</h5>
             </div>
             <div className="container-fluid">
                 <div className="row">
-                    <div className="col-md-6 col-sm-6 col-lg-12 p-2">
-                        <SelectOptions selectRefVal={condition}
-                            options={["Condition"].concat(options.condition)}/>
-                    </div>
-                    <div className="col-md-6 col-sm-6 col-lg-12 p-2">
-                        <SelectOptions selectRefVal={body}
-                            options={["Body"].concat(options.body)}/>
-                    </div>
-                    <div className="col-md-6 col-sm-6 col-lg-12 p-2">
-                        <SelectOptions selectRefVal={make}
-                            options={["Make"].concat(options.make)}/>
-                    </div>
-                    <div className="col-md-6 col-sm-6 col-lg-12 p-2">
-                        <SelectOptions selectRefVal={model}
-                            options={["Model"].concat(options.model)}/>
-                    </div>
-                    <div className="col-md-6 col-sm-6 col-lg-12 p-2">
-                        <SelectOptions selectRefVal={year}
-                            options={["Year"].concat(options.year)}/>
-                    </div>
+                    <SearchOptionsCategories title="Make" search="carManufacturer" active={true} counter={counter}/>
+
+                    <SearchOptionsCategories title="Condition" search="carCondition" counter={counter}/>
+
+                    <SearchOptionsCategories title="Model" search="model" counter={counter}/>
+
+                    <SearchOptionsCategories title="Year" search="year" counter={counter}/>
+
+                    <SearchOptionsCategories title="Body type" search="bodyType" counter={counter}/>
                 </div>
             </div>
-            <BtnSubmit title="Search" classes="btn-primary m-2"/>
+            <BtnSubmit title="Search" classes="btn-primary m-3"/>
         </form>
     )
 };

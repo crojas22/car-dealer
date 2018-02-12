@@ -4,7 +4,6 @@ export const fetchDataApi = (url, method) => {
         method: method
     })
         .then(response => {
-            console.log(response)
             return response.json()
         })
 };

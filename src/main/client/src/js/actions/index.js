@@ -1,19 +1,19 @@
 import { fetchDataApi } from "../api";
+import { NEW_CAR_DATA, USED_CAR_DATA } from "../types/actionTypes";
 
-const getData = (payload, type) => {
+export const getData = (payload, type) => {
     return {
         payload,
         type
     }
 };
 
-
 export const fetchDataAction = (url, method) => {
     return (dispatch) => {
         fetchDataApi(url, method)
             .then(resp => {
-                dispatch(getData(resp.newVehicles.content, "NEW_CAR_DATA"));
-                dispatch(getData(resp.usedVehicles.content, "USED_CAR_DATA"));
+                dispatch(getData(resp.newVehicles.content, NEW_CAR_DATA));
+                dispatch(getData(resp.usedVehicles.content, USED_CAR_DATA));
             })
             .catch(error => console.log(error))
     }

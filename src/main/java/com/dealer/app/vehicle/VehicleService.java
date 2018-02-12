@@ -1,14 +1,9 @@
 package com.dealer.app.vehicle;
 
-import com.dealer.app.vehicle.enums.CarYear;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class VehicleService {
@@ -21,17 +16,5 @@ public class VehicleService {
 
     public Page<Vehicle> getVehicleByCondition(CarCondition carCondition,Pageable pageable) {
         return this.vehicleRepo.getVehicleByCarConditionOrderByYearDesc(carCondition,pageable);
-    }
-
-    public <T> List<String> enumToString(T[] array) {
-        return Arrays.stream(array)
-                .map(Object::toString)
-                .collect(Collectors.toList());
-    }
-
-    public List<Integer> enumToInt(CarYear[] array) {
-        return Arrays.stream(array)
-                .map(e -> (e.getYear()))
-                .collect(Collectors.toList());
     }
 }

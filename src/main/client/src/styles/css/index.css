@@ -253,7 +253,7 @@ button:focus {
 .inventory .filter-search-icon svg:first-child {
   margin-right: 0.75rem; }
 
-.inventory span {
+.inventory span[class^="text-muted"] {
   white-space: nowrap;
   line-height: 2.2; }
 
@@ -261,12 +261,30 @@ button:focus {
   margin-top: -3rem;
   z-index: 50; }
   .search-options form {
+    user-select: none;
     box-shadow: 0 5px 18px rgba(0, 0, 0, 0.18); }
-  .search-options form > div:first-child {
-    background-color: #242629;
-    color: white; }
-    .search-options form > div:first-child svg {
-      margin: 0 0.50rem 0.30rem 0; }
+    .search-options form > div:first-child {
+      background-color: #242629;
+      color: white; }
+      .search-options form > div:first-child svg {
+        margin: 0 0.50rem 0.30rem 0; }
+    .search-options form .container-fluid .row .col-md-6 {
+      padding: 0.5rem 1rem 0; }
+      .search-options form .container-fluid .row .col-md-6 > div .title {
+        cursor: pointer; }
+      .search-options form .container-fluid .row .col-md-6 > div .not-selected > span:first-of-type {
+        cursor: pointer;
+        padding-bottom: 0.50rem; }
+        .search-options form .container-fluid .row .col-md-6 > div .not-selected > span:first-of-type:hover {
+          color: #6c98e1; }
+      .search-options form .container-fluid .row .col-md-6 > div svg {
+        margin-bottom: 0.25rem; }
+      .search-options form .container-fluid .row .col-md-6 > div > div:first-of-type,
+      .search-options form .container-fluid .row .col-md-6 > div > div:nth-of-type(2) > div,
+      .search-options form .container-fluid .row .col-md-6 > div .selected {
+        display: flex;
+        justify-content: space-between;
+        align-items: center; }
 
 .car-listing-vertical::before {
   content: '';
@@ -297,10 +315,10 @@ button:focus {
   .car-listing-vertical .price::before {
     content: '';
     position: absolute;
-    width: 1.659rem;
-    height: 3.34375rem;
+    width: 1.6rem;
+    height: 2.75rem;
     top: 0;
-    left: -0.9rem;
+    left: -0.6rem;
     background-color: #6c98e1;
     transform: skew(-25deg, 0deg);
     z-index: -1; }
@@ -309,7 +327,7 @@ button:focus {
     text-align: right;
     text-decoration: line-through; }
   .car-listing-vertical .price span:last-child {
-    margin-top: -0.85rem; }
+    margin-top: -0.2rem; }
 
 .car-listing-vertical .car-info .col-md {
   padding: 0; }
@@ -322,7 +340,7 @@ button:focus {
     color: gray;
     margin: 0 0.25rem 0 0; }
   .car-listing-vertical .car-info .col-md div:last-of-type {
-    margin-top: -0.80rem; }
+    margin-top: -0.3rem; }
   .car-listing-vertical .car-info .col-md svg {
     margin: 0 0.25rem 0.25rem 0; }
 

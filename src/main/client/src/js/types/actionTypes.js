@@ -1,0 +1,6 @@
+export const NEW_CAR_DATA = "NEW_CAR_DATA";
+export const USED_CAR_DATA = "USED_CAR_DATA";
+export const GET_INVENTORY_DATA = "GET_INVENTORY_DATA";
+export const GET_SEARCH_OPTIONS = "GET_SEARCH_OPTIONS";
+
+export const ADD_TO_URL = "ADD_TO_URL";

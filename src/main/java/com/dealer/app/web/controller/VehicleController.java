@@ -36,15 +36,4 @@ public class VehicleController {
 
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
-
-    @RequestMapping(value = "/inventory/options" , method = RequestMethod.GET)
-    public ResponseEntity<Map<String, Object>> getSearchOptions() {
-        Map<String, Object> response = new HashMap<>();
-        response.put("condition", CarCondition.values());
-        response.put("body", BodyType.values());
-        response.put("make", this.vehicleService.enumToString(CarManufacturer.values()));
-        response.put("model", this.vehicleService.enumToString(CarModel.values()));
-        response.put("year", this.vehicleService.enumToInt(CarYear.values()));
-        return new ResponseEntity<>(response, HttpStatus.OK);
-    }
 }
