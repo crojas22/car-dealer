@@ -1,7 +1,6 @@
 import React from 'react';
 import CarListing from "../components/reusables/CarListing";
 import CarListingVertical from "../components/inventory/CarListingVertical";
-import { BtnInput } from "../components/reusables/Buttons";
 import FaCheckCircle from "react-icons/lib/fa/check-circle";
 import { GET_INVENTORY_DATA } from "../types/actionTypes";
 

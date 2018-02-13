@@ -10,16 +10,17 @@ class SpecialsCarousel extends React.Component {
             displayTo: 1,
             perPage: 1
         };
+        this.updateWindowSize = this.updateWindowSize.bind(this);
     }
 
     componentDidMount() {
-        this.windowSizeEventListener("resize");
-        this.updateWindowSize();
+        this.updateWindowSize()
+        window.addEventListener("resize", this.updateWindowSize, false);
     }
 
     componentWillUnmount() {
-        this.windowSizeEventListener("resize");
         this.updateWindowSize();
+        window.removeEventListener("resize", this.updateWindowSize, false)
     }
 
     updateWindowSize() {
@@ -42,12 +43,6 @@ class SpecialsCarousel extends React.Component {
                 displayTo: 3
             });
         }
-    }
-
-    windowSizeEventListener(listener) {
-        window.addEventListener(listener, () => {
-            this.updateWindowSize();
-        })
     }
 
     render() {

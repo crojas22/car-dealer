@@ -7,7 +7,8 @@ import { BtnLink } from "./reusables/Buttons";
 import WhyUs from "./homepage/WhyUs";
 import SpecialsCarousel from "./homepage/SpecialsCarousel";
 import BackgroundSellBuy from "./homepage/BackgroundSellBuy";
-import { fetchDataAction } from "../actions";
+import { fetchData, fetchDataAction } from "../actions";
+import { fetchDataFunction } from "../functions/HelperFunctions";
 
 class HomePage extends React.Component {
     constructor(props) {
@@ -19,6 +20,7 @@ class HomePage extends React.Component {
 
     componentWillMount() {
         this.props.fetchDataAction("http://localhost:8080/api/v1/home/inventory?page=0&size=6", "GET");
+        fetchDataFunction(this.props.url, "year", "desc", this.props.fetchData);
     }
 
     render() {
@@ -63,13 +65,15 @@ class HomePage extends React.Component {
 const mapStateToProps = state => {
     return {
         newCars: state.newCarData,
-        usedCars: state.usedCarData
+        usedCars: state.usedCarData,
+        url: state.inventorySearchURL
     }
 };
 
 const mapDispatchToProps = dispatch => {
     return bindActionCreators({
         fetchDataAction,
+        fetchData
     }, dispatch)
 };
 

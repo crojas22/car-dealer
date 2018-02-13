@@ -8,7 +8,7 @@ import { ADD_TO_URL } from "../../types/actionTypes";
 import { fetchDataFunction } from "../../functions/HelperFunctions";
 
 
-const SearchOptionsCategories = ({selected, counter, search, searchOptionStatus, active, option, title, url, getData, fetchData, selectedType}) => {
+const SearchOptionsCategories = ({selected, counter, search, searchOptionStatus, active, option, title, url, getData, fetchData, selectedType, classes}) => {
 
     const onClickHandle = (e, variable) => {
         let uri = [...url];
@@ -42,7 +42,7 @@ const SearchOptionsCategories = ({selected, counter, search, searchOptionStatus,
     };
 
     return(
-        <div className="col-md-6 col-sm-6 col-lg-12 mb-2">
+        <div className={classes}>
             {
                 selected ?
                     <div className="bg-light px-2 p-2 border">
@@ -51,10 +51,9 @@ const SearchOptionsCategories = ({selected, counter, search, searchOptionStatus,
                         }
                     </div>
                     :
-                    <div>
-                        <div className="bg-light p-2 border title"
-                             onClick={() => searchOptionStatus(!active, option)}>
-                            <div className="">
+                    <div onClick={() => searchOptionStatus(!active, option)}>
+                        <div className="bg-light p-2 border title">
+                            <div>
                                 {
                                     title
                                 }
@@ -66,11 +65,14 @@ const SearchOptionsCategories = ({selected, counter, search, searchOptionStatus,
                             </div>
                         </div>
                         <div>
-                            <div className="px-2 border border-top-0">
-                                {
-                                    active ? displayInfo(counter, search ,"not-selected") : null
-                                }
-                            </div>
+                            {
+                                active ?
+                                    <div className="px-2 pt-2 border border-top-0">
+                                        {
+                                            displayInfo(counter, search ,"not-selected")
+                                        }
+                                    </div> : null
+                            }
                         </div>
                     </div>
             }
