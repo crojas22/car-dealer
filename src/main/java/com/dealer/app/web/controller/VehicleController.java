@@ -1,11 +1,7 @@
 package com.dealer.app.web.controller;
 
-import com.dealer.app.vehicle.BodyType;
 import com.dealer.app.vehicle.CarCondition;
 import com.dealer.app.vehicle.VehicleService;
-import com.dealer.app.vehicle.enums.CarManufacturer;
-import com.dealer.app.vehicle.enums.CarModel;
-import com.dealer.app.vehicle.enums.CarYear;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;

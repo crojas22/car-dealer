@@ -1,6 +1,20 @@
 export const NEW_CAR_DATA = "NEW_CAR_DATA";
 export const USED_CAR_DATA = "USED_CAR_DATA";
 export const GET_INVENTORY_DATA = "GET_INVENTORY_DATA";
-export const GET_SEARCH_OPTIONS = "GET_SEARCH_OPTIONS";
 
 export const ADD_TO_URL = "ADD_TO_URL";
+export const RESET_URL = "RESET_URL";
+
+export const OPTION1 = "OPTION1";
+export const OPTION2 = "OPTION2";
+export const OPTION3 = "OPTION3";
+export const OPTION4 = "OPTION4";
+export const OPTION5 = "OPTION5";
+export const RESET_OPTIONS = "RESET_OPTIONS";
+
+export const OPTION1SELECTED = "OPTION1_SELECTED";
+export const OPTION2SELECTED = "OPTION2_SELECTED";
+export const OPTION3SELECTED = "OPTION3_SELECTED";
+export const OPTION4SELECTED = "OPTION4_SELECTED";
+export const OPTION5SELECTED = "OPTION5_SELECTED";
+export const RESET_SELECTED = "RESET_SELECTED";

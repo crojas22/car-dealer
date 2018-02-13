@@ -8,6 +8,19 @@ export const getData = (payload, type) => {
     }
 };
 
+export const resetData = type => {
+    return {
+        type
+    }
+};
+
+export const searchOptionStatus = (bool, type) => {
+    return {
+        bool,
+        type
+    }
+};
+
 export const fetchDataAction = (url, method) => {
     return (dispatch) => {
         fetchDataApi(url, method)

@@ -280,11 +280,18 @@ button:focus {
       .search-options form .container-fluid .row .col-md-6 > div svg {
         margin-bottom: 0.25rem; }
       .search-options form .container-fluid .row .col-md-6 > div > div:first-of-type,
-      .search-options form .container-fluid .row .col-md-6 > div > div:nth-of-type(2) > div,
+      .search-options form .container-fluid .row .col-md-6 > div > div:nth-of-type(2) > div > div,
       .search-options form .container-fluid .row .col-md-6 > div .selected {
         display: flex;
         justify-content: space-between;
         align-items: center; }
+      .search-options form .container-fluid .row .col-md-6 > div > div:nth-of-type(2) {
+        position: relative; }
+        .search-options form .container-fluid .row .col-md-6 > div > div:nth-of-type(2) > div[class^="px-2"] {
+          background-color: #dfe2e7;
+          z-index: 100;
+          position: absolute;
+          width: 100%; }
 
 .car-listing-vertical::before {
   content: '';

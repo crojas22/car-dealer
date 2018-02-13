@@ -4,6 +4,7 @@ import {
     wholeInventoryLinks
 } from "./carData";
 import { inventorySearchURL } from "./url";
+import { inventoryUI, inventoryUISelected } from "./inventoryUI";
 
 const reducer = combineReducers({
     newCarData,
@@ -11,7 +12,9 @@ const reducer = combineReducers({
     wholeInventoryData,
     wholeInventoryLinks,
     individualCarData,
-    inventorySearchURL
+    inventorySearchURL,
+    inventoryUI,
+    inventoryUISelected
 });
 
 export default reducer;
