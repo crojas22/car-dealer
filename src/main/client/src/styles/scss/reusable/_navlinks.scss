@@ -1,8 +1,30 @@
 .render-nav-links {
-  display: flex;
-  justify-content: center;
-  button {
-    text-transform: capitalize;
-    margin-right: 1rem;
+  nav {
+    width: 100%;
   }
+  .pagination {
+    @include flex-center(flex, center, center);
+    & > div:nth-of-type(2) {
+      flex-grow: 2;
+      flex-shrink: 1;
+      display: flex;
+      justify-content: center;
+      flex-wrap: nowrap;
+    }
+    & > div:first-of-type {
+      flex-grow: 1;
+      flex-shrink: 2;
+    }
+    & > div:last-of-type {
+      flex-grow: 1;
+      flex-shrink: 2;
+    }
+    & div {
+      width: 100%;
+      &:nth-of-type(2) > button:nth-of-type(n+2) {
+        margin-left: 0.5rem;
+      }
+    }
+  }
+
 }

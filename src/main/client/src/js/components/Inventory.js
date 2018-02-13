@@ -7,9 +7,9 @@ import FaThLarge from "react-icons/lib/fa/th-large";
 import FaThList from "react-icons/lib/fa/th-list";
 import { fetchData, getData } from "../actions";
 import {
-    fetchDataFunction, renderCarListing, renderNavLinks,
-    renderVerticalListing
+    fetchDataFunction, renderCarListing, renderVerticalListing, sliceArray
 } from "../functions/HelperFunctions";
+import PaginationLinks from "./inventory/PaginationLinks";
 
 class Inventory extends React.Component {
     constructor(props) {
@@ -40,7 +40,7 @@ class Inventory extends React.Component {
                     <div className="row">
                         <div className="search-options col-lg-3">
 
-                            <SearchOptions array={this.props.inventory} />
+                            <SearchOptions array={this.props.inventory} resetPage={this.props.resetPage}/>
 
                         </div>
                         <div className="col-lg-9 col-sm-12">
@@ -64,16 +64,20 @@ class Inventory extends React.Component {
                                 this.state.horizontal ?
                                     <div className="row">
                                         {
-                                            renderCarListing(this.props.inventory, "col-xl-3 col-md-4 col-sm-6 my-3", "home-listing")
+                                            renderCarListing(
+                                                sliceArray(this.props.inventory, this.props.pageNumber, this.props.perPage),
+                                                "col-xl-3 col-md-4 col-sm-6 my-3", "home-listing"
+                                            )
                                         }
                                     </div>
-                                    : renderVerticalListing(this.props.inventory)
+                                    : renderVerticalListing(sliceArray(this.props.inventory, this.props.pageNumber, this.props.perPage))
                             }
-                            {/*<div className="render-nav-links my-4">*/}
-                                {/*{*/}
-                                    {/*renderNavLinks(["first", "prev", "next", "last"], this.props.links, this.props.fetchData, this.props.url)*/}
-                                {/*}*/}
-                            {/*</div>*/}
+                            {
+                                <div className="render-nav-links my-4 text-center">
+                                    <PaginationLinks perPage={this.props.perPage} pageNumber={this.props.pageNumber}
+                                                     arrayLength={this.props.inventory.length} changePage={this.props.changePage}/>
+                                </div>
+                            }
                         </div>
                     </div>
                 </div>

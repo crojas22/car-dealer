@@ -15,16 +15,6 @@ export const renderCarListing = (array, classes, mainClass) => (
 
 export const renderVerticalListing = (array=[]) => array.map((each, index) => <CarListingVertical key={index} {...each}/>);
 
-export const renderNavLinks = (array=[], object={}, func, uri) => array
-    .filter(each => each in object)
-    .map(each => <BtnInput key={each} classes="btn-primary" title={each} onClick={() => {
-        let url = object[each].href;
-        if (uri.length > 1) url += `&${uri.slice(1).join("")}`;
-
-        func(url, "GET", "GET_INVENTORY_DATA");
-        window.scrollTo(0,0);
-    }}/>);
-
 export const renderFeatures = (array=[]) => (
     <div className="row flex-wrap">
         {
@@ -58,3 +48,8 @@ export const fetchDataFunction = (array=[], variable, direction, func) => {
     func(array.concat(`page=0&size=500&sort=${variable},${direction}&`).join(""), "GET", GET_INVENTORY_DATA);
 };
 
+export const sliceArray = (array, pageNumber, perPage) => {
+    let max = pageNumber * perPage,
+        min = max - perPage;
+    return array.length < perPage ? array : array.slice(min, max);
+};

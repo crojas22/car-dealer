@@ -372,12 +372,29 @@ button:focus {
     border-color: #6c98e1;
     color: #6c98e1; }
 
-.render-nav-links {
+.render-nav-links nav {
+  width: 100%; }
+
+.render-nav-links .pagination {
   display: flex;
-  justify-content: center; }
-  .render-nav-links button {
-    text-transform: capitalize;
-    margin-right: 1rem; }
+  justify-content: center;
+  align-items: center; }
+  .render-nav-links .pagination > div:nth-of-type(2) {
+    flex-grow: 2;
+    flex-shrink: 1;
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap; }
+  .render-nav-links .pagination > div:first-of-type {
+    flex-grow: 1;
+    flex-shrink: 2; }
+  .render-nav-links .pagination > div:last-of-type {
+    flex-grow: 1;
+    flex-shrink: 2; }
+  .render-nav-links .pagination div {
+    width: 100%; }
+    .render-nav-links .pagination div:nth-of-type(2) > button:nth-of-type(n+2) {
+      margin-left: 0.5rem; }
 
 .individual-car-page ol {
   border-bottom: 1px solid #ccc; }

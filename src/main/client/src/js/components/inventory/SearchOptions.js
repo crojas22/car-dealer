@@ -12,7 +12,7 @@ import {
     RESET_URL
 } from "../../types/actionTypes";
 
-const SearchOptions = ({array, resetData, fetchData, url, status, selected}) => {
+const SearchOptions = ({array, resetData, fetchData, url, status, selected, resetPage}) => {
 
     const counter = getCounter(array);
 
@@ -50,6 +50,7 @@ const SearchOptions = ({array, resetData, fetchData, url, status, selected}) => 
                           resetData(RESET_URL);
                           resetData(RESET_SELECTED);
                           resetData(RESET_OPTIONS);
+                          resetPage();
                           fetchDataFunction(uri.splice(0,1), "year", "desc", fetchData)
                       }}/>
         </form>
