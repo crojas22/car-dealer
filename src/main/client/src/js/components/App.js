@@ -23,7 +23,7 @@ class App extends Component {
 
     changePageNumber(value, totalLinks) {
         if (!isNaN(value)) {
-            this.setState({pageNumber: parseInt(value)});
+            this.setState({pageNumber: parseInt(value, 10)});
             window.scrollTo(0,0);
         } else if (value === "&lt;&lt;" && this.state.pageNumber > 1) {
             this.setState({pageNumber: this.state.pageNumber - 1});

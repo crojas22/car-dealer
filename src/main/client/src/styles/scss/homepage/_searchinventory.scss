@@ -4,6 +4,9 @@
   }
   form .form-row .col-md-6 {
     user-select: none;
+    & > div[class^="bg-grey"] {
+      cursor: pointer;
+    }
     .title {
       cursor: pointer;
       & > div > svg {
@@ -32,6 +35,17 @@
         position: absolute;
         width: 100%;
       }
+    }
+  }
+  .call-banner {
+    margin: 0 0.05rem;
+    @include flex-center(flex, center, center);
+    padding: 5rem 0.45rem;
+    color: white;
+    background-color: #fab637;
+    font-size: 2rem;
+    svg {
+      margin-bottom: 0.30rem;
     }
   }
 }

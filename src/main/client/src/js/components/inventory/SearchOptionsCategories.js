@@ -8,13 +8,14 @@ import { ADD_TO_URL } from "../../types/actionTypes";
 import { fetchDataFunction } from "../../functions/HelperFunctions";
 
 
-const SearchOptionsCategories = ({selected, counter, search, searchOptionStatus, active, option, title, url, getData, fetchData, selectedType, classes}) => {
+const SearchOptionsCategories = ({selected, counter, search, searchOptionStatus, active, option, title, url, getData, fetchData, selectedType, classes, index}) => {
 
     const onClickHandle = (e, variable) => {
         let uri = [...url];
         if (!selected && !url.join("").includes(variable)) {
-            uri.push(`${variable}=${e.target.innerHTML}&`);
-            getData({address: `${variable}=${e.target.innerHTML}&`}, ADD_TO_URL);
+            uri[index] = `${variable}=${e.target.innerHTML}&`;
+            getData(uri, ADD_TO_URL);
+            searchOptionStatus(true, selectedType);
             fetchDataFunction(uri, "year", "desc", fetchData);
         }
     };
@@ -24,14 +25,12 @@ const SearchOptionsCategories = ({selected, counter, search, searchOptionStatus,
         return Object.keys(obj).map((each, index) => {
             return(
                 <div key={index} className={classes}>
-                    <span onClick={e => {
-                        onClickHandle(e,variable);
-                        searchOptionStatus(true, selectedType);}}>
+                    <span onClick={e => onClickHandle(e,variable)}>
                         {
                             each
                         }
-                        </span>
-                    <span className="badge badge-dark rounded-0">
+                    </span>
+                    <span className="badge badge-secondary rounded-0">
                         {
                             obj[each]
                         }
@@ -45,7 +44,13 @@ const SearchOptionsCategories = ({selected, counter, search, searchOptionStatus,
         <div className={classes}>
             {
                 selected ?
-                    <div className="bg-light px-2 p-2 border">
+                    <div className="bg-grey px-2 p-2 border" onClick={() => {
+                        let uri = [...url];
+                        uri.splice(index, 1);
+                        getData(uri, "REMOVE_FROM_URL");
+                        searchOptionStatus(false, selectedType);
+                        fetchDataFunction(uri, "year", "desc", fetchData);
+                    }}>
                         {
                             displayInfo(counter, search ,"selected")
                         }

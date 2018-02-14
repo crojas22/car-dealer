@@ -12,7 +12,7 @@ const PaginationLinks = ({perPage, pageNumber, arrayLength, changePage}) => {
         for (i; i < totalPages; i++) {
             array.push(
                 <BtnInput key={i} title={i + 1} onClick={e => changePage(e.target.innerHTML, totalPages)}
-                          classes={"btn-" + (pageNumber === (i + 1) ? "dark" : "primary")}/>
+                          classes={"btn-" + (pageNumber === (i + 1) ? "primary" : "light border")}/>
             );
         }
         return array;
@@ -24,17 +24,9 @@ const PaginationLinks = ({perPage, pageNumber, arrayLength, changePage}) => {
                 arrayLength > perPage ?
                     <ul className="pagination">
                         <div>
-                            <BtnInput title="<<" onClick={e => changePage(e.target.innerHTML, totalPages)}
-                                      classes="btn-primary" />
-                        </div>
-                        <div>
                             {
                                 renderLinks()
                             }
-                        </div>
-                        <div>
-                            <BtnInput title=">>" onClick={e => changePage(e.target.innerHTML, totalPages)}
-                                      classes="btn-primary"/>
                         </div>
                     </ul>
                     : null

@@ -12,6 +12,7 @@ import {
 import SearchOptionsCategories from "../inventory/SearchOptionsCategories";
 import { fetchDataFunction, getCounter } from "../../functions/HelperFunctions";
 import { fetchData, resetData } from "../../actions";
+import CallBanner from "./CallBanner";
 
 const SearchInventory = ({inventory, selected, status, history, resetData, url, fetchData}) => {
 
@@ -24,18 +25,18 @@ const SearchInventory = ({inventory, selected, status, history, resetData, url, 
                 <div className="form-row">
                     <SearchOptionsCategories title="Make" search="carManufacturer" selected={selected.option1}
                                              selectedType={OPTION1SELECTED} classes="col-md-6 col-lg-3 mb-3"
-                                             counter={counter} active={status.option1} option={OPTION1}/>
+                                             counter={counter} active={status.option1} option={OPTION1} index={1}/>
 
                     <SearchOptionsCategories title="Model" search="model" classes="col-md-6 col-lg-3 mb-3"
                                              selectedType={OPTION3SELECTED} selected={selected.option3}
-                                             counter={counter} active={status.option3} option={OPTION3}/>
+                                             counter={counter} active={status.option3} option={OPTION3} index={3}/>
 
                     <SearchOptionsCategories title="Condition" search="carCondition" classes="col-md-6 col-lg-3 mb-3"
-                                             selectedType={OPTION2SELECTED} selected={selected.option2}
+                                             selectedType={OPTION2SELECTED} selected={selected.option2} index={2}
                                              counter={counter} active={status.option2} option={OPTION2}/>
 
                     <SearchOptionsCategories title="Year" search="year" classes="col-md-6 col-lg-3 mb-3"
-                                             selectedType={OPTION4SELECTED} selected={selected.option4}
+                                             selectedType={OPTION4SELECTED} selected={selected.option4} index={4}
                                              counter={counter} active={status.option4} option={OPTION4}/>
                 </div>
                 <BtnInput title="Search" classes="btn btn-primary mt-1 mr-3" onClick={() => {
@@ -44,7 +45,7 @@ const SearchInventory = ({inventory, selected, status, history, resetData, url, 
                         window.scrollTo(0,0);
                     }
                 }}/>
-                <BtnInput title={<div><FaRotateLeft size={20}/> Reset</div>} classes="btn-light mt-1 border" onClick={() => {
+                <BtnInput title={<div><FaRotateLeft size={20}/> Reset All</div>} classes="btn-light mt-1 border" onClick={() => {
                     let uri = [...url];
                     resetData(RESET_URL);
                     resetData(RESET_SELECTED);
@@ -52,6 +53,7 @@ const SearchInventory = ({inventory, selected, status, history, resetData, url, 
                     fetchDataFunction(uri.splice(0,1), "year", "desc", fetchData)
                 }}/>
             </form>
+            <CallBanner />
         </div>
     )
 };

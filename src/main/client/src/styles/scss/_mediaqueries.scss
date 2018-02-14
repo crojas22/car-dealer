@@ -38,6 +38,11 @@
     @include create-before(70%, 1px, 0, null, null, 15%, $light-grey);
   }
 
+
+  .individual-car-page .features-tab .contact-form > div:first-of-type ::before {
+    @include create-before(80%, 1px, null, null, 0, 10%, $light-grey);
+  }
+
   .car-listing-vertical {
     .car-info {
       padding-left: 1rem;
@@ -63,6 +68,10 @@
 @media only screen and (min-width: 768px) {
   .why-us div div:nth-of-type(n+2)::before {
     @include create-before(1px, 70%, null, null, 15%, 0, $light-grey);
+  }
+
+  .individual-car-page .features-tab .contact-form > div:first-of-type ::before {
+    @include create-before(1px, 80%, null, 0, 10%, null, $light-grey);
   }
 
   .car-info .col-md:nth-of-type(-1n+3) > .icon-info {

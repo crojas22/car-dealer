@@ -6,6 +6,7 @@ import { RenderBreadcrumps, RenderCarInfoLinks, RenderLinks } from "./reusables/
 import { fetchData } from "../actions";
 import { TrTd } from "./reusables/Div";
 import { renderFeatures } from "../functions/HelperFunctions";
+import ContactForm from "./individualCar/ContactForm";
 
 class IndividualCarPage extends React.Component {
     constructor(props) {
@@ -73,7 +74,7 @@ class IndividualCarPage extends React.Component {
                         <div className="container-fluid features-tab mb-3">
                             {
                                 this.state.currentTabActive === "Vehicle Features" ? renderFeatures(features) :
-                                    this.state.currentTabActive === "Contact" ? <div>Contact Form</div> : null
+                                    this.state.currentTabActive === "Contact" ? <ContactForm info={this.props.info}/> : null
                             }
                         </div>
                     </div>

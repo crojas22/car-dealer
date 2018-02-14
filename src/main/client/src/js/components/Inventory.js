@@ -27,7 +27,7 @@ class Inventory extends React.Component {
         if (this._filter.value.endsWith("oldest first")) fetchDataFunction(this.props.url, "year", "asc", this.props.fetchData);
         else if (this._filter.value.endsWith("lowest first")) fetchDataFunction(this.props.url, "price", "asc", this.props.fetchData);
         else if (this._filter.value.endsWith("highest first")) fetchDataFunction(this.props.url, "price", "desc", this.props.fetchData);
-        else fetchDataFunction(this.state.url, "year", "desc", this.props.fetchData);
+        else fetchDataFunction(this.props.url, "year", "desc", this.props.fetchData);
     }
 
     render() {

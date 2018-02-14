@@ -34,6 +34,14 @@
     top: 0;
     left: 15%;
     background-color: #ccc; }
+  .individual-car-page .features-tab .contact-form > div:first-of-type ::before {
+    content: '';
+    position: absolute;
+    width: 80%;
+    height: 1px;
+    bottom: 0;
+    left: 10%;
+    background-color: #ccc; }
   .car-listing-vertical .car-info {
     padding-left: 1rem;
     padding-right: 1rem; }
@@ -52,6 +60,14 @@
     height: 70%;
     bottom: 15%;
     left: 0;
+    background-color: #ccc; }
+  .individual-car-page .features-tab .contact-form > div:first-of-type ::before {
+    content: '';
+    position: absolute;
+    width: 1px;
+    height: 80%;
+    right: 0;
+    bottom: 10%;
     background-color: #ccc; }
   .car-info .col-md:nth-of-type(-1n+3) > .icon-info {
     border-right: 1px solid #ccc; }
@@ -267,13 +283,16 @@ button:focus {
         margin: 0 0.50rem 0.30rem 0; }
     .search-options form .container-fluid .row .col-md-6 {
       padding: 0.5rem 1rem 0; }
+      .search-options form .container-fluid .row .col-md-6 > div[class^="bg-grey"] {
+        cursor: pointer; }
       .search-options form .container-fluid .row .col-md-6 > div .title {
         cursor: pointer; }
-      .search-options form .container-fluid .row .col-md-6 > div .not-selected > span:first-of-type {
-        cursor: pointer;
+      .search-options form .container-fluid .row .col-md-6 > div .not-selected {
         padding-bottom: 0.50rem; }
-        .search-options form .container-fluid .row .col-md-6 > div .not-selected > span:first-of-type:hover {
-          color: #6c98e1; }
+        .search-options form .container-fluid .row .col-md-6 > div .not-selected > span:first-of-type {
+          cursor: pointer; }
+          .search-options form .container-fluid .row .col-md-6 > div .not-selected > span:first-of-type:hover {
+            color: #6c98e1; }
       .search-options form .container-fluid .row .col-md-6 > div svg {
         margin-bottom: 0.25rem; }
       .search-options form .container-fluid .row .col-md-6 > div > div:first-of-type,
@@ -376,21 +395,13 @@ button:focus {
   display: flex;
   justify-content: center;
   align-items: center; }
-  .render-nav-links .pagination > div:nth-of-type(2) {
-    flex-grow: 2;
-    flex-shrink: 1;
+  .render-nav-links .pagination > div:nth-of-type(1) {
     display: flex;
     justify-content: center;
     flex-wrap: nowrap; }
-  .render-nav-links .pagination > div:first-of-type {
-    flex-grow: 1;
-    flex-shrink: 2; }
-  .render-nav-links .pagination > div:last-of-type {
-    flex-grow: 1;
-    flex-shrink: 2; }
   .render-nav-links .pagination div {
     width: 100%; }
-    .render-nav-links .pagination div:nth-of-type(2) > button:nth-of-type(n+2) {
+    .render-nav-links .pagination div:nth-of-type(1) > button:nth-of-type(n+2) {
       margin-left: 0.5rem; }
 
 .individual-car-page ol {
@@ -465,13 +476,33 @@ button:focus {
 
 .individual-car-page .features-tab svg {
   color: #cc601a;
-  margin: 0 0.5rem 0.25rem 0; }
+  margin: 0 0.5rem 0.3rem 0; }
+
+.individual-car-page .features-tab .contact-form h4 {
+  margin-bottom: 1rem; }
+
+.individual-car-page .features-tab .contact-form p {
+  margin-bottom: 0.35rem;
+  padding-top: 0.30rem;
+  font-weight: lighter; }
+  .individual-car-page .features-tab .contact-form p span {
+    color: gray; }
+
+.individual-car-page .features-tab .contact-form form label {
+  margin: 0;
+  color: gray;
+  font-weight: lighter; }
+
+.individual-car-page .features-tab .contact-form form input:focus {
+  background-color: white !important; }
 
 .search-inventory h2 > svg {
   margin: 0 0.50rem 0.30rem 0; }
 
 .search-inventory form .form-row .col-md-6 {
   user-select: none; }
+  .search-inventory form .form-row .col-md-6 > div[class^="bg-grey"] {
+    cursor: pointer; }
   .search-inventory form .form-row .col-md-6 .title {
     cursor: pointer; }
     .search-inventory form .form-row .col-md-6 .title > div > svg {
@@ -495,6 +526,18 @@ button:focus {
       position: absolute;
       width: 100%; }
 
+.search-inventory .call-banner {
+  margin: 0 0.05rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5rem 0.45rem;
+  color: white;
+  background-color: #fab637;
+  font-size: 2rem; }
+  .search-inventory .call-banner svg {
+    margin-bottom: 0.30rem; }
+
 * {
   margin: 0;
   padding: 0;
@@ -512,3 +555,6 @@ a:hover {
 
 a {
   color: black; }
+
+.bg-grey {
+  background-color: #e0e2e8; }
