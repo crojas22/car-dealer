@@ -18,7 +18,7 @@ class HomePage extends React.Component {
         }
     }
 
-    componentWillMount() {
+    componentDidMount() {
         this.props.fetchDataAction("http://localhost:8080/api/v1/home/inventory?page=0&size=6", "GET");
         fetchDataFunction(this.props.url, "year", "desc", this.props.fetchData);
     }

@@ -270,6 +270,12 @@ button:focus {
   white-space: nowrap;
   line-height: 2.2; }
 
+.inventory .sort-inventory > div[class^="bg-light"] {
+  width: 10rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+
 .search-options {
   margin-top: -3rem;
   z-index: 50; }

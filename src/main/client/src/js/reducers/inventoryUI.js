@@ -1,6 +1,6 @@
 import {
     OPTION1, OPTION1SELECTED, OPTION2, OPTION2SELECTED, OPTION3, OPTION3SELECTED, OPTION4, OPTION4SELECTED,
-    OPTION5, OPTION5SELECTED, RESET_OPTIONS, RESET_SELECTED
+    OPTION5, OPTION5SELECTED, RESET_OPTIONS, RESET_SELECTED, UPDATE_INVENTORY_SORT
 } from "../types/actionTypes";
 
 const initialState = {
@@ -73,6 +73,15 @@ export const inventoryUISelected = (state = initialStateSelected,action) => {
         case RESET_SELECTED:
             return initialStateSelected;
         default :
+            return state;
+    }
+};
+
+export const inventorySortInfo = (state={sortBy: "year", direction: "desc", index: 0}, action) => {
+    switch (action.type) {
+        case UPDATE_INVENTORY_SORT:
+            return action.payload;
+        default:
             return state;
     }
 };

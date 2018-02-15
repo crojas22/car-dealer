@@ -5,20 +5,29 @@ import Navigation from "./Navigation";
 import Inventory from "./Inventory";
 import Footer from "./reusables/Footer";
 import IndividualCarPage from "./IndividualCarPage";
+import { fetchDataFunction } from "../functions/HelperFunctions";
 
 class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
             perPage: 6,
-            pageNumber: 1
+            pageNumber: 1,
+            index: 0,
+            sortBy: "year",
+            direction: "desc"
         };
         this.changePageNumber = this.changePageNumber.bind(this);
         this.resetPage = this.resetPage.bind(this);
+        this.sort = this.sort.bind(this);
     }
 
     resetPage() {
         this.setState({pageNumber: 1});
+    }
+
+    sort(sortBy, direction, index) {
+        this.setState({sortBy, direction, index})
     }
 
     changePageNumber(value, totalLinks) {
@@ -41,7 +50,8 @@ class App extends Component {
                 <Switch>
                     <Route exact path='/' render={() => (<HomePage />)}/>
                     <Route exact path='/inventory' render={
-                        () => (<Inventory {...this.state} changePage={this.changePageNumber} resetPage={this.resetPage}/>)
+                        () => (<Inventory {...this.state} sort={this.sort}
+                                          changePage={this.changePageNumber} resetPage={this.resetPage}/>)
                     }/>
                     <Route exact path='/inventory/:car' render={props => (<IndividualCarPage {...props}/>)}/>
                 </Switch>

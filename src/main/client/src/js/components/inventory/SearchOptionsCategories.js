@@ -1,14 +1,13 @@
 import React from 'react';
 import { connect } from "react-redux";
 import { bindActionCreators } from 'redux';
-import FaChevronDown from "react-icons/lib/fa/chevron-down";
-import FaChevronUp from "react-icons/lib/fa/chevron-up";
 import { fetchData, getData, searchOptionStatus } from "../../actions";
 import { ADD_TO_URL } from "../../types/actionTypes";
 import { fetchDataFunction } from "../../functions/HelperFunctions";
+import { DivUPDown } from "./InventoryReusables";
 
 
-const SearchOptionsCategories = ({selected, counter, search, searchOptionStatus, active, option, title, url, getData, fetchData, selectedType, classes, index}) => {
+const SearchOptionsCategories = ({selected, counter, search, searchOptionStatus, active, option, title, url, getData, fetchData, selectedType, classes, index, sort}) => {
 
     const onClickHandle = (e, variable) => {
         let uri = [...url];
@@ -16,7 +15,7 @@ const SearchOptionsCategories = ({selected, counter, search, searchOptionStatus,
             uri[index] = `${variable}=${e.target.innerHTML}&`;
             getData(uri, ADD_TO_URL);
             searchOptionStatus(true, selectedType);
-            fetchDataFunction(uri, "year", "desc", fetchData);
+            fetchDataFunction(uri, sort.sortBy, sort.direction, fetchData);
         }
     };
 
@@ -49,30 +48,19 @@ const SearchOptionsCategories = ({selected, counter, search, searchOptionStatus,
                         uri.splice(index, 1);
                         getData(uri, "REMOVE_FROM_URL");
                         searchOptionStatus(false, selectedType);
-                        fetchDataFunction(uri, "year", "desc", fetchData);
+                        fetchDataFunction(uri, sort.sortBy, sort.direction, fetchData);
                     }}>
                         {
                             displayInfo(counter, search ,"selected")
                         }
                     </div>
                     :
-                    <div onClick={() => searchOptionStatus(!active, option)}>
-                        <div className="bg-light p-2 border title">
-                            <div>
-                                {
-                                    title
-                                }
-                            </div>
-                            <div>
-                                {
-                                    active ? <FaChevronUp/> : <FaChevronDown/>
-                                }
-                            </div>
-                        </div>
+                    <div>
+                        <DivUPDown clickHandle={() => searchOptionStatus(!active, option)} title={title} active={active}/>
                         <div>
                             {
                                 active ?
-                                    <div className="px-2 pt-2 border border-top-0">
+                                    <div className="px-2 pt-2 border ">
                                         {
                                             displayInfo(counter, search ,"not-selected")
                                         }
@@ -87,7 +75,8 @@ const SearchOptionsCategories = ({selected, counter, search, searchOptionStatus,
 
 const mapStateToProps = state => {
     return {
-        url: state.inventorySearchURL
+        url: state.inventorySearchURL,
+        sort: state.inventorySortInfo
     }
 };
 

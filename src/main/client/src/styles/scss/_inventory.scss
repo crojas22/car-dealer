@@ -40,4 +40,12 @@
     white-space: nowrap;
     line-height: 2.2;
   }
+
+  & .sort-inventory {
+    & > div[class^="bg-light"] {
+      width: 10rem;
+      @include flex-center(flex,space-between, center)
+    }
+  }
+
 }

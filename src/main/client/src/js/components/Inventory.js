@@ -10,24 +10,36 @@ import {
     fetchDataFunction, renderCarListing, renderVerticalListing, sliceArray
 } from "../functions/HelperFunctions";
 import PaginationLinks from "./inventory/PaginationLinks";
+import { DivUPDown } from "./inventory/InventoryReusables";
+import { UPDATE_INVENTORY_SORT } from "../types/actionTypes";
 
 class Inventory extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            horizontal: false,
+            horizontal: false
         };
     }
 
-    componentWillMount() {
-        fetchDataFunction(this.props.url, "year", "desc", this.props.fetchData);
+    componentDidMount() {
+        fetchDataFunction(this.props.url, this.props.sort.sortBy, this.props.sort.direction, this.props.fetchData);
+        document.querySelector("select").selectedIndex = this.props.sort.index;
     }
 
     sortInventory() {
-        if (this._filter.value.endsWith("oldest first")) fetchDataFunction(this.props.url, "year", "asc", this.props.fetchData);
-        else if (this._filter.value.endsWith("lowest first")) fetchDataFunction(this.props.url, "price", "asc", this.props.fetchData);
-        else if (this._filter.value.endsWith("highest first")) fetchDataFunction(this.props.url, "price", "desc", this.props.fetchData);
-        else fetchDataFunction(this.props.url, "year", "desc", this.props.fetchData);
+        if (this._filter.value.endsWith("oldest first")){
+            this.props.getData({sortBy: "year", direction: "asc", index: 1}, UPDATE_INVENTORY_SORT);
+            fetchDataFunction(this.props.url, "year", "asc", this.props.fetchData);
+        } else if (this._filter.value.endsWith("lowest first")) {
+            this.props.getData({sortBy: "price", direction: "asc", index: 2}, UPDATE_INVENTORY_SORT);
+            fetchDataFunction(this.props.url, "price", "asc", this.props.fetchData);
+        } else if (this._filter.value.endsWith("highest first")) {
+            this.props.getData({sortBy: "price", direction: "desc", index: 3}, UPDATE_INVENTORY_SORT);
+            fetchDataFunction(this.props.url, "price", "desc", this.props.fetchData);
+        } else {
+            this.props.getData({sortBy: "year", direction: "desc", index: 0}, UPDATE_INVENTORY_SORT);
+            fetchDataFunction(this.props.url, "year", "desc", this.props.fetchData);
+        }
     }
 
     render() {
@@ -51,6 +63,7 @@ class Inventory extends React.Component {
                                         selectRefVal={input => this._filter = input}
                                         options={["Year: newest first","Year: oldest first","Price: lowest first", "Price: highest first"]}
                                         selectOnChange={() => this.sortInventory()}/>
+
                                 </div>
                                 <div className="filter-search-icon">
                                     <FaThLarge size={30} color={(this.state.horizontal ? "black":null)}
@@ -90,7 +103,8 @@ const mapStateToProps = state => {
     return {
         inventory: state.wholeInventoryData,
         links: state.wholeInventoryLinks,
-        url: state.inventorySearchURL
+        url: state.inventorySearchURL,
+        sort: state.inventorySortInfo
     }
 };
 
