@@ -17,4 +17,8 @@ public class VehicleService {
     public Page<Vehicle> getVehicleByCondition(CarCondition carCondition,Pageable pageable) {
         return this.vehicleRepo.getVehicleByCarConditionOrderByYearDesc(carCondition,pageable);
     }
+
+    public Vehicle getVehicle(Integer id) {
+        return this.vehicleRepo.findOne(id);
+    }
 }

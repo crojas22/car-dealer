@@ -12,10 +12,14 @@ class IndividualCarPage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            currentTabActive: "Vehicle Features"
+            currentTabActive: "Vehicle Features",
+            showAlert: false,
+            success: false
         };
 
         this.changeMainPic = this.changeMainPic.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.closeAlert = this.closeAlert.bind(this);
     }
 
     componentWillMount() {
@@ -26,6 +30,21 @@ class IndividualCarPage extends React.Component {
 
     changeMainPic(event) {
         document.querySelector(".main-pic").attributes.src.value = event.target.attributes.src.value;
+    }
+
+    handleSubmit(data, id) {
+        fetch(`http://localhost:8080/api/v1/add/inquiries/${id}`, {
+            method: "POST",
+            body: JSON.stringify(data),
+            headers: new Headers({'Content-Type': 'application/json'})
+        }).then(resp => {
+            if (resp.status === 201) this.setState({showAlert: true, success: true});
+            else this.setState({showAlert: true, success: false});
+        });
+    }
+
+    closeAlert() {
+        this.setState({showAlert: false});
     }
 
     render() {
@@ -74,7 +93,8 @@ class IndividualCarPage extends React.Component {
                         <div className="container-fluid features-tab mb-3">
                             {
                                 this.state.currentTabActive === "Vehicle Features" ? renderFeatures(features) :
-                                    this.state.currentTabActive === "Contact" ? <ContactForm info={this.props.info}/> : null
+                                    this.state.currentTabActive === "Contact" ?
+                                        <ContactForm info={this.props.info} submit={this.handleSubmit} {...this.state} clickHandle={this.closeAlert}/> : null
                             }
                         </div>
                     </div>
