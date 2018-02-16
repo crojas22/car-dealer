@@ -7,7 +7,7 @@ import { InputLabel } from "../reusables/Form";
 import { BtnSubmit } from "../reusables/Buttons";
 import Alert from "../reusables/Alert";
 
-const ContactForm = ({info, submit, success, showAlert, clickHandle}) => {
+const ContactForm = ({info, submit, success, showAlert, clickHandle, message}) => {
     let _name, _phone, _email, _message;
 
     const handleSubmit = e => {
@@ -32,7 +32,7 @@ const ContactForm = ({info, submit, success, showAlert, clickHandle}) => {
                     <FaPaperPlaneO/> Message to Vendor
                 </h4>
                 <Alert show={showAlert} classes={"" + (success ? "success": "danger")} clickHandle={clickHandle}
-                       message={"" + (success ? "Message sent": "Unable to send Message")}/>
+                       message={message}/>
                 <InputLabel _for="name" inputRef={input => _name = input} title="Your Name:"/>
 
                 <InputLabel _for="phone" inputRef={input => _phone = input} title="Your Contact Phone Number:" type="tel"/>

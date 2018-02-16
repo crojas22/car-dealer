@@ -14,12 +14,12 @@ class IndividualCarPage extends React.Component {
         this.state = {
             currentTabActive: "Vehicle Features",
             showAlert: false,
-            success: false
+            success: false,
+            message: ""
         };
 
         this.changeMainPic = this.changeMainPic.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.closeAlert = this.closeAlert.bind(this);
     }
 
     componentDidMount() {
@@ -39,13 +39,9 @@ class IndividualCarPage extends React.Component {
             body: JSON.stringify(data),
             headers: new Headers({'Content-Type': 'application/json'})
         }).then(resp => {
-            if (resp.status === 201) this.setState({showAlert: true, success: true});
-            else this.setState({showAlert: true, success: false});
+            if (resp.status === 201) this.setState({showAlert: true, success: true, message: "Success!! Message sent"});
+            else this.setState({showAlert: true, success: false, message: "Sorry, something went wrong"});
         });
-    }
-
-    closeAlert() {
-        this.setState({showAlert: false});
     }
 
     render() {
@@ -95,7 +91,8 @@ class IndividualCarPage extends React.Component {
                             {
                                 this.state.currentTabActive === "Vehicle Features" ? renderFeatures(features) :
                                     this.state.currentTabActive === "Contact" ?
-                                        <ContactForm info={this.props.info} submit={this.handleSubmit} {...this.state} clickHandle={this.closeAlert}/> : null
+                                        <ContactForm info={this.props.info} submit={this.handleSubmit} {...this.state}
+                                                     clickHandle={() => this.setState({showAlert: false, message: ""})}/> : null
                             }
                         </div>
                     </div>
