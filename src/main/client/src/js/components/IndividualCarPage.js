@@ -26,6 +26,7 @@ class IndividualCarPage extends React.Component {
         this.props.fetchData(
             `http://localhost:8080/api/v1/vehicles/${this.props.match.params.car}?projection=features`, 'GET', "CAR_INFO"
         );
+        window.scrollTo(0,0);
     }
 
     changeMainPic(event) {

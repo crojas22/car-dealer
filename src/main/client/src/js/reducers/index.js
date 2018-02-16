@@ -1,10 +1,13 @@
 import { combineReducers } from 'redux';
 import {
-    individualCarData, inventorySearchOptions, newCarData, usedCarData, wholeInventoryData,
+    individualCarData, newCarData, usedCarData, wholeInventoryData,
     wholeInventoryLinks
 } from "./carData";
 import { inventorySearchURL } from "./url";
-import { inventorySortInfo, inventoryUI, inventoryUISelected } from "./inventoryUI";
+import {
+    inventoryColorSelected, inventoryLayout, inventorySortInfo, inventoryUI,
+    inventoryUISelected
+} from "./inventoryUI";
 
 const reducer = combineReducers({
     newCarData,
@@ -15,7 +18,9 @@ const reducer = combineReducers({
     inventorySearchURL,
     inventoryUI,
     inventoryUISelected,
-    inventorySortInfo
+    inventorySortInfo,
+    inventoryLayout,
+    inventoryColorSelected
 });
 
 export default reducer;

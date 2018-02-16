@@ -10,17 +10,9 @@ import {
     fetchDataFunction, renderCarListing, renderVerticalListing, sliceArray
 } from "../functions/HelperFunctions";
 import PaginationLinks from "./inventory/PaginationLinks";
-import { DivUPDown } from "./inventory/InventoryReusables";
-import { UPDATE_INVENTORY_SORT } from "../types/actionTypes";
+import { UPDATE_INVENTORY_LAYOUT, UPDATE_INVENTORY_SORT } from "../types/actionTypes";
 
 class Inventory extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            horizontal: false
-        };
-    }
-
     componentDidMount() {
         fetchDataFunction(this.props.url, this.props.sort.sortBy, this.props.sort.direction, this.props.fetchData);
         document.querySelector("select").selectedIndex = this.props.sort.index;
@@ -66,20 +58,20 @@ class Inventory extends React.Component {
 
                                 </div>
                                 <div className="filter-search-icon">
-                                    <FaThLarge size={30} color={(this.state.horizontal ? "black":null)}
-                                               onClick={() => this.setState({horizontal: true})}/>
+                                    <FaThLarge size={30} color={(this.props.layout ? "black":null)}
+                                               onClick={() => this.props.getData(true, UPDATE_INVENTORY_LAYOUT)}/>
 
-                                    <FaThList size={30} color={(!this.state.horizontal ? "black":null)}
-                                              onClick={() => this.setState({horizontal: false})}/>
+                                    <FaThList size={30} color={(!this.props.layout ? "black":null)}
+                                              onClick={() => this.props.getData(false, UPDATE_INVENTORY_LAYOUT)}/>
                                 </div>
                             </div>
                             {
-                                this.state.horizontal ?
+                                this.props.layout ?
                                     <div className="row">
                                         {
                                             renderCarListing(
                                                 sliceArray(this.props.inventory, this.props.pageNumber, this.props.perPage),
-                                                "col-xl-3 col-md-4 col-sm-6 my-3", "home-listing"
+                                                "col-xl-3 col-md-4 col-sm-6 mt-4 pt-1 mb-3", "home-listing"
                                             )
                                         }
                                     </div>
@@ -104,7 +96,8 @@ const mapStateToProps = state => {
         inventory: state.wholeInventoryData,
         links: state.wholeInventoryLinks,
         url: state.inventorySearchURL,
-        sort: state.inventorySortInfo
+        sort: state.inventorySortInfo,
+        layout: state.inventoryLayout
     }
 };
 

@@ -14,7 +14,7 @@ import { fetchDataFunction, getCounter } from "../../functions/HelperFunctions";
 import { fetchData, resetData } from "../../actions";
 import CallBanner from "./CallBanner";
 
-const SearchInventory = ({inventory, selected, status, history, resetData, url, fetchData}) => {
+const SearchInventory = ({inventory, selected, status, history, resetData, url, fetchData, sort}) => {
 
     const counter = getCounter(inventory);
 
@@ -50,7 +50,7 @@ const SearchInventory = ({inventory, selected, status, history, resetData, url, 
                     resetData(RESET_URL);
                     resetData(RESET_SELECTED);
                     resetData(RESET_OPTIONS);
-                    fetchDataFunction(uri.splice(0,1), "year", "desc", fetchData)
+                    fetchDataFunction(uri.splice(0,1), sort.sortBy, sort.direction, fetchData)
                 }}/>
             </form>
             <CallBanner />
@@ -63,7 +63,8 @@ const mapStateToProps = state => {
         url: state.inventorySearchURL,
         inventory: state.wholeInventoryData,
         status: state.inventoryUI,
-        selected: state.inventoryUISelected
+        selected: state.inventoryUISelected,
+        sort: state.inventorySortInfo
     }
 };
 

@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from "react-redux";
 import { bindActionCreators } from 'redux';
 import { fetchData, getData, searchOptionStatus } from "../../actions";
-import { ADD_TO_URL } from "../../types/actionTypes";
+import { ADD_TO_URL, REMOVE_FROM_URL } from "../../types/actionTypes";
 import { fetchDataFunction } from "../../functions/HelperFunctions";
 import { DivUPDown } from "./InventoryReusables";
 
@@ -10,8 +10,8 @@ import { DivUPDown } from "./InventoryReusables";
 const SearchOptionsCategories = ({selected, counter, search, searchOptionStatus, active, option, title, url, getData, fetchData, selectedType, classes, index, sort}) => {
 
     const onClickHandle = (e, variable) => {
-        let uri = [...url];
         if (!selected && !url.join("").includes(variable)) {
+            let uri = [...url];
             uri[index] = `${variable}=${e.target.innerHTML}&`;
             getData(uri, ADD_TO_URL);
             searchOptionStatus(true, selectedType);
@@ -46,7 +46,7 @@ const SearchOptionsCategories = ({selected, counter, search, searchOptionStatus,
                     <div className="bg-grey px-2 p-2 border" onClick={() => {
                         let uri = [...url];
                         uri.splice(index, 1);
-                        getData(uri, "REMOVE_FROM_URL");
+                        getData(uri, REMOVE_FROM_URL);
                         searchOptionStatus(false, selectedType);
                         fetchDataFunction(uri, sort.sortBy, sort.direction, fetchData);
                     }}>

@@ -10,7 +10,7 @@ class Navigation extends React.Component {
     render() {
 
         return(
-            <nav>
+            <nav className="navigation">
                 <div className="justify-content-between navbar navbar-expand-md navbar-dark bg-black py-3">
                     <div>
                         <a className="navbar-brand my-1" >
