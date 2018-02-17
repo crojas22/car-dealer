@@ -6,7 +6,7 @@ import {
 import { inventorySearchURL } from "./url";
 import {
     inventoryColorSelected, inventoryLayout, inventorySortInfo, inventoryUI,
-    inventoryUISelected
+    inventoryUISelected, optionsSelected
 } from "./inventoryUI";
 
 const reducer = combineReducers({
@@ -20,7 +20,8 @@ const reducer = combineReducers({
     inventoryUISelected,
     inventorySortInfo,
     inventoryLayout,
-    inventoryColorSelected
+    inventoryColorSelected,
+    optionsSelected
 });
 
 export default reducer;

@@ -11,7 +11,9 @@ const OnOff = (InnerComponent) => {
 
         render() {
             return(
-                <InnerComponent {...this.props} {...this.state} clickHandle={() => this.setState({active: !this.state.active})} />
+                <InnerComponent {...this.props} {...this.state} clickHandle={() => this.setState({active: !this.state.active})}
+                                clickOut={e => e.target === document.querySelector(".modal") ? this.setState({active:false}) : null}
+                                clickIn={() => this.setState({active: true})}/>
             )
         }
 

@@ -7,10 +7,10 @@ import FaRotateLeft from 'react-icons/lib/fa/rotate-left';
 import { BtnInput } from "../reusables/Buttons";
 import {
     OPTION1, OPTION1SELECTED, OPTION2, OPTION2SELECTED, OPTION3, OPTION3SELECTED, OPTION4,
-    OPTION4SELECTED, RESET_OPTIONS, RESET_SELECTED, RESET_URL
+    OPTION4SELECTED
 } from "../../types/actionTypes";
 import SearchOptionsCategories from "../inventory/SearchOptionsCategories";
-import { fetchDataFunction, getCounter } from "../../functions/HelperFunctions";
+import { getCounter, resetFunction } from "../../functions/HelperFunctions";
 import { fetchData, resetData } from "../../actions";
 import CallBanner from "./CallBanner";
 
@@ -45,13 +45,8 @@ const SearchInventory = ({inventory, selected, status, history, resetData, url, 
                         window.scrollTo(0,0);
                     }
                 }}/>
-                <BtnInput title={<div><FaRotateLeft size={20}/> Reset All</div>} classes="btn-light mt-1 border" onClick={() => {
-                    let uri = [...url];
-                    resetData(RESET_URL);
-                    resetData(RESET_SELECTED);
-                    resetData(RESET_OPTIONS);
-                    fetchDataFunction(uri.splice(0,1), sort.sortBy, sort.direction, fetchData)
-                }}/>
+                <BtnInput title={<div><FaRotateLeft size={20}/> Reset All</div>} classes="btn-light mt-1 border"
+                          onClick={() => resetFunction(url, sort, resetData, fetchData)}/>
             </form>
             <CallBanner />
         </div>

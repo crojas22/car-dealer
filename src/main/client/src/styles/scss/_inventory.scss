@@ -21,6 +21,15 @@
       z-index: -1;
     }
   }
+
+  .v-available {
+    font-size: larger;
+    span:first-of-type {
+      color: $primary-color;
+      font-weight: bold;
+    }
+  }
+
   select {
     background-color: $light-silver;
   }
@@ -35,10 +44,6 @@
     svg:first-child {
       margin-right: 0.75rem;
     }
-  }
-  span[class^="text-muted"] {
-    white-space: nowrap;
-    line-height: 2.2;
   }
 
   & .sort-inventory {
@@ -81,6 +86,14 @@
       li {
         @include flex-center(flex, space-between, center)
       }
+    }
+  }
+
+  .options-selected {
+    font-size: 0.80rem;
+    box-shadow: 0 1px 3px rgba(59,62,68,.3);
+    & > div:nth-of-type(2):hover {
+      cursor: pointer;
     }
   }
 

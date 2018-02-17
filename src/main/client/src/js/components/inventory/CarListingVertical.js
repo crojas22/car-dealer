@@ -6,6 +6,8 @@ import GoCalendar from 'react-icons/lib/go/calendar';
 import MdDirectionsCar from 'react-icons/lib/md/directions-car';
 import { Colmd } from "../reusables/Div";
 import { RenderCarInfoLinks } from "../reusables/RenderLinks";
+import FullPageModal from "../reusables/FullPageModal";
+import TestDrive from "./TestDrive";
 
 const CarListingVertical = ({id, carCondition, pictureAddress, year ,carManufacturer, model, discountedPrice, price, mileage, fuelType, transmissionType}) => (
     <div className="car-listing-vertical row mt-4 position-relative">
@@ -54,7 +56,8 @@ const CarListingVertical = ({id, carCondition, pictureAddress, year ,carManufact
                     <div>{transmissionType}</div>
                 </Colmd>
             </div>
-            <RenderCarInfoLinks />
+            <FullPageModal info={`${year} ${carManufacturer} ${model}`} id={id}
+                           InnerComponent={TestDrive} TriggerComponent={RenderCarInfoLinks}/>
         </div>
     </div>
 );

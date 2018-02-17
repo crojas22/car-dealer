@@ -1,0 +1,24 @@
+.modal {
+  @include flex-center(flex, center, center);
+  position: fixed;
+  overflow: auto;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  outline: 0;
+  background-color: rgba(0,0,0,0.8);
+  .test-drive {
+    background-color: white;
+    h5,
+    p {
+      margin: 0;
+    }
+    label {
+      margin: 0 ;
+    }
+  }
+}

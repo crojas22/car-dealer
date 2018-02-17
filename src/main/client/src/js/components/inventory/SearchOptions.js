@@ -5,12 +5,12 @@ import MdDirectionsCar from 'react-icons/lib/md/directions-car';
 import FaRotateLeft from 'react-icons/lib/fa/rotate-left';
 import { BtnInput } from "../reusables/Buttons";
 import SearchOptionsCategories from "./SearchOptionsCategories";
-import { fetchDataFunction, getCounter } from "../../functions/HelperFunctions";
+import { getCounter, resetFunction } from "../../functions/HelperFunctions";
 import { fetchData, resetData } from "../../actions";
 import {
     OPTION1, OPTION1_COLOR, OPTION1SELECTED, OPTION2, OPTION2_COLOR, OPTION2SELECTED, OPTION3, OPTION3SELECTED, OPTION4,
     OPTION4SELECTED, OPTION5,
-    OPTION5SELECTED, RESET_OPTIONS, RESET_SELECTED, RESET_URL
+    OPTION5SELECTED
 } from "../../types/actionTypes";
 import AdditionalSearchOption from "./AdditionalSearchOption";
 
@@ -49,16 +49,12 @@ const SearchOptions = ({array, resetData, fetchData, url, status, selected, rese
                 </div>
                 <BtnInput title={<div><FaRotateLeft size={20}/> Reset All</div>} classes="btn-light m-3 border"
                           onClick={() => {
-                              let uri = [...url];
-                              resetData(RESET_URL);
-                              resetData(RESET_SELECTED);
-                              resetData(RESET_OPTIONS);
+                              resetFunction(url, sort, resetData, fetchData);
                               resetPage();
-                              fetchDataFunction(uri.splice(0,1), sort.sortBy, sort.direction, fetchData)
                           }}/>
             </form>
             <div className="container-fluid">
-                <div className="row">
+                <div className="row mb-lg-4">
                     <AdditionalSearchOption counter={counter} selectedType={OPTION1_COLOR} color={color.option1}
                                             search="exteriorColor" index={6} title="Exterior Color"/>
                     <AdditionalSearchOption counter={counter} selectedType={OPTION2_COLOR} color={color.option2}

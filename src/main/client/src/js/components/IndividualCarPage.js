@@ -7,6 +7,8 @@ import { fetchData } from "../actions";
 import { TrTd } from "./reusables/Div";
 import { renderFeatures } from "../functions/HelperFunctions";
 import ContactForm from "./individualCar/ContactForm";
+import TestDrive from "./inventory/TestDrive";
+import FullPageModal from "./reusables/FullPageModal";
 
 class IndividualCarPage extends React.Component {
     constructor(props) {
@@ -46,7 +48,7 @@ class IndividualCarPage extends React.Component {
 
     render() {
         const {carManufacturer, year, model, pictureAddress, price, exteriorColor, interiorColor, vinNumber, picture2,
-            picture3, picture4, bodyType, mileage, fuelType, transmissionType, wheelDrive, features} = this.props.info;
+            picture3, picture4, bodyType, mileage, fuelType, transmissionType, wheelDrive, features, id} = this.props.info;
         const title = `${year} ${carManufacturer} ${model}`;
         return(
             <div className="individual-car-page container-fluid px-md-5">
@@ -58,7 +60,8 @@ class IndividualCarPage extends React.Component {
                                 title
                             }
                         </h4>
-                        <RenderCarInfoLinks />
+                        <FullPageModal info={`${year} ${carManufacturer} ${model}`} InnerComponent={TestDrive}
+                                       TriggerComponent={RenderCarInfoLinks} id={id}/>
                         <div>
                             <div>
                                 <img className="main-pic img-fluid w-100" src={pictureAddress} alt={carManufacturer}/>

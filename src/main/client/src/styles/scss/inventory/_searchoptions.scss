@@ -17,9 +17,6 @@
 
     & .container-fluid .row .col-md-6 {
       padding: 0.5rem 1rem 0;
-      & > div[class^="bg-grey"] {
-        cursor: pointer;
-      }
       & > div {
         & .title {
           cursor: pointer;

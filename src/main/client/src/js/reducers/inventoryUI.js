@@ -1,7 +1,10 @@
 import {
+    ADD_OPTION_SELECTED,
     OPTION1, OPTION1_COLOR, OPTION1SELECTED, OPTION2, OPTION2_COLOR, OPTION2SELECTED, OPTION3, OPTION3SELECTED, OPTION4,
     OPTION4SELECTED,
-    OPTION5, OPTION5SELECTED, RESET_OPTIONS, RESET_SELECTED, UPDATE_INVENTORY_LAYOUT, UPDATE_INVENTORY_SORT
+    OPTION5, OPTION5SELECTED, REMOVE_OPTIONS_SELECTED, RESET_OPTION_SELECTED, RESET_OPTIONS, RESET_SELECTED,
+    UPDATE_INVENTORY_LAYOUT,
+    UPDATE_INVENTORY_SORT
 } from "../types/actionTypes";
 
 const initialState = {
@@ -106,6 +109,19 @@ export const inventoryLayout = (state=false, action) => {
     switch (action.type) {
         case UPDATE_INVENTORY_LAYOUT:
             return action.payload;
+        default:
+            return state;
+    }
+};
+
+export const optionsSelected = (state=[], action) => {
+    switch (action.type) {
+        case ADD_OPTION_SELECTED:
+            return action.payload;
+        case REMOVE_OPTIONS_SELECTED:
+            return action.payload;
+        case RESET_OPTION_SELECTED:
+            return [];
         default:
             return state;
     }

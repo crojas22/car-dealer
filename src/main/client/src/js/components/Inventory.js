@@ -5,12 +5,15 @@ import SearchOptions from "./inventory/SearchOptions";
 import SelectOptions from "./reusables/SelectOptions";
 import FaThLarge from "react-icons/lib/fa/th-large";
 import FaThList from "react-icons/lib/fa/th-list";
-import { fetchData, getData } from "../actions";
+import { fetchData, getData, searchOptionStatus } from "../actions";
 import {
     fetchDataFunction, renderCarListing, renderVerticalListing, sliceArray
 } from "../functions/HelperFunctions";
 import PaginationLinks from "./inventory/PaginationLinks";
-import { UPDATE_INVENTORY_LAYOUT, UPDATE_INVENTORY_SORT } from "../types/actionTypes";
+import {
+    REMOVE_FROM_URL, REMOVE_OPTIONS_SELECTED, UPDATE_INVENTORY_LAYOUT,
+    UPDATE_INVENTORY_SORT
+} from "../types/actionTypes";
 
 class Inventory extends React.Component {
     componentDidMount() {
@@ -48,22 +51,63 @@ class Inventory extends React.Component {
 
                         </div>
                         <div className="col-lg-9 col-sm-12">
-                            <div className=" d-flex mt-5 pb-5 border-bottom justify-content-between">
-                                <div className="d-flex">
-                                    <span className="text-muted mr-2">Sort by: </span>
-                                    <SelectOptions
-                                        selectRefVal={input => this._filter = input}
-                                        options={["Year: newest first","Year: oldest first","Price: lowest first", "Price: highest first"]}
-                                        selectOnChange={() => this.sortInventory()}/>
-
+                            <div className=" d-sm-flex mt-4 justify-content-sm-between align-items-center">
+                                <div className="v-available mb-3 mb-sm-0">
+                                    <span>{this.props.inventory.length} </span><span>VEHICLES AVAILABLE</span>
                                 </div>
-                                <div className="filter-search-icon">
-                                    <FaThLarge size={30} color={(this.props.layout ? "black":null)}
-                                               onClick={() => this.props.getData(true, UPDATE_INVENTORY_LAYOUT)}/>
+                                <div className="filter-search-icon d-flex justify-content-between align-items-center">
+                                    <div className="mr-sm-3">
+                                        <SelectOptions
+                                            selectRefVal={input => this._filter = input}
+                                            options={["Date: newest first","Date: oldest first","Price: lowest first", "Price: highest first"]}
+                                            selectOnChange={() => this.sortInventory()}/>
+                                    </div>
+                                    <div>
+                                        <FaThLarge size={30} color={(this.props.layout ? "black":null)}
+                                                   onClick={() => this.props.getData(true, UPDATE_INVENTORY_LAYOUT)}/>
 
-                                    <FaThList size={30} color={(!this.props.layout ? "black":null)}
-                                              onClick={() => this.props.getData(false, UPDATE_INVENTORY_LAYOUT)}/>
+                                        <FaThList size={30} color={(!this.props.layout ? "black":null)}
+                                                  onClick={() => this.props.getData(false, UPDATE_INVENTORY_LAYOUT)}/>
+                                    </div>
                                 </div>
+                            </div>
+                            <div className="d-flex pb-4 border-bottom flex-wrap justify-content-center justify-content-sm-start">
+                                {
+                                    this.props.optionsSelected.length > 0 ?
+                                        this.props.optionsSelected.map((each, index, arr) => {
+                                            if (each != null) {
+                                                return(
+                                                    <div className="options-selected d-flex py-2 pl-2 bg-light mt-4 mr-2" key={index}>
+                                                        <div>
+                                                            <span className="mr-1 text-muted">
+                                                                {
+                                                                    each.key
+                                                                }:
+                                                            </span>
+                                                                    <span>
+                                                                {
+                                                                    each.value
+                                                                }
+                                                            </span>
+                                                        </div>
+                                                        <div className="ml-1 px-2" onClick={() => {
+                                                            let uri = [...this.props.url],
+                                                                selectedOptions = [...arr];
+                                                            uri[each.index] = null;
+                                                            selectedOptions[each.index] = null;
+                                                            this.props.getData(uri, REMOVE_FROM_URL);
+                                                            this.props.getData(selectedOptions, REMOVE_OPTIONS_SELECTED);
+                                                            this.props.searchOptionStatus(false, each.selectedType);
+                                                            fetchDataFunction(uri, this.props.sort.sortBy, this.props.sort.direction, this.props.fetchData)}}>
+                                                            X
+                                                        </div>
+                                                    </div>
+                                                )
+                                            }
+                                        })
+                                        :
+                                        null
+                                }
                             </div>
                             {
                                 this.props.layout ?
@@ -97,14 +141,16 @@ const mapStateToProps = state => {
         links: state.wholeInventoryLinks,
         url: state.inventorySearchURL,
         sort: state.inventorySortInfo,
-        layout: state.inventoryLayout
+        layout: state.inventoryLayout,
+        optionsSelected: state.optionsSelected
     }
 };
 
 const mapDispatchToProps = dispatch => {
     return bindActionCreators({
         fetchData,
-        getData
+        getData,
+        searchOptionStatus
     }, dispatch)
 };
 

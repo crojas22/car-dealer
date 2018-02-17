@@ -22,13 +22,13 @@ export const RenderBreadcrumps = ({title}) => (
     </ol>
 );
 
-export const RenderCarInfoLinks = () => (
+export const RenderCarInfoLinks = ({click}) => (
     <ul className="car-links p-0 mt-4 mb-3 d-sm-flex">
         <li className="bg-light">
             <span>stock# </span> 323244
         </li>
         <li>
-            <a>
+            <a onClick={click}>
                 <GoCalendar/> Schedule a test drive
             </a>
         </li>
