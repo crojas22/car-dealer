@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from 'redux';
 import MdLocalGasStation from 'react-icons/lib/md/local-gas-station';
 import { RenderBreadcrumps, RenderCarInfoLinks, RenderLinks } from "./reusables/RenderLinks";
-import { fetchData } from "../actions";
+import { fetchData, setData } from "../actions";
 import { TrTd } from "./reusables/Div";
 import { renderFeatures } from "../functions/HelperFunctions";
 import ContactForm from "./individualCar/ContactForm";
@@ -60,8 +60,8 @@ class IndividualCarPage extends React.Component {
                                 title
                             }
                         </h4>
-                        <FullPageModal info={`${year} ${carManufacturer} ${model}`} InnerComponent={TestDrive}
-                                       TriggerComponent={RenderCarInfoLinks} id={id}/>
+                        <FullPageModal info={`${year} ${carManufacturer} ${model}`} InnerComponent={TestDrive} compare={this.props.compare}
+                                       TriggerComponent={RenderCarInfoLinks} id={id} carInfo={this.props.info} setData={this.props.setData}/>
                         <div>
                             <div>
                                 <img className="main-pic img-fluid w-100" src={pictureAddress} alt={carManufacturer}/>
@@ -109,15 +109,15 @@ class IndividualCarPage extends React.Component {
                             </div>
                             <table className="my-2 table">
                                 <tbody>
-                                <TrTd title="BODY" value={bodyType}/>
-                                <TrTd title="MILEAGE" value={mileage}/>
-                                <TrTd title="FUEL TYPE" value={fuelType}/>
-                                <TrTd title="YEAR" value={year}/>
-                                <TrTd title="TRANSMISSION" value={transmissionType}/>
-                                <TrTd title="DRIVE" value={wheelDrive}/>
-                                <TrTd title="EXTERIOR COLOR" value={exteriorColor}/>
-                                <TrTd title="INTERIOR COLOR	" value={interiorColor}/>
-                                <TrTd title="VIN" value={vinNumber}/>
+                                    <TrTd title="BODY" value={bodyType}/>
+                                    <TrTd title="MILEAGE" value={mileage}/>
+                                    <TrTd title="FUEL TYPE" value={fuelType}/>
+                                    <TrTd title="YEAR" value={year}/>
+                                    <TrTd title="TRANSMISSION" value={transmissionType}/>
+                                    <TrTd title="DRIVE" value={wheelDrive}/>
+                                    <TrTd title="EXTERIOR COLOR" value={exteriorColor}/>
+                                    <TrTd title="INTERIOR COLOR	" value={interiorColor}/>
+                                    <TrTd title="VIN" value={vinNumber}/>
                                 </tbody>
                             </table>
                         </div>
@@ -143,13 +143,15 @@ class IndividualCarPage extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        info : state.individualCarData
+        info : state.individualCarData,
+        compare : state.compareVehicles
     }
 };
 
 const mapDispatchToProps = dispatch => {
     return bindActionCreators({
-        fetchData
+        fetchData,
+        setData
     }, dispatch)
 };
 

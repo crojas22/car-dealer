@@ -10,16 +10,16 @@ export const Colmd = props => (
     </div>
 );
 
-export const TrTd = props => (
+export const TrTd = ({title, value}) => (
     <tr>
         <td>
             {
-                props.title
+                title
             }
         </td>
         <td>
             {
-                props.value
+                value
             }
         </td>
     </tr>

@@ -1,13 +1,4 @@
 .individual-car-page {
-  ol {
-    border-bottom: 1px solid $light-grey;
-    & li a {
-      color: rgba(0,0,0,0.5);
-      text-transform: uppercase;
-      font-size: 0.8rem;
-      text-decoration: none;
-    }
-  }
 
   .col img {
     cursor: pointer;
@@ -115,5 +106,15 @@
         }
       }
     }
+  }
+}
+
+.bread {
+  border-bottom: 1px solid $light-grey;
+  & li a {
+    color: rgba(0,0,0,0.5);
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    text-decoration: none;
   }
 }

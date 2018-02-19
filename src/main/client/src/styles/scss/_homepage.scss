@@ -32,17 +32,23 @@ button:focus {
     }
   }
   .price {
-    @include background-spacing($light-blue, white, 0.15rem, null, relative);
-    z-index: 10;
-    &::before {
-      @include create-before(1rem, 2rem, 0, null, null, -0.5rem, $light-blue);
-      transform: skew(-25deg, 0deg);
-      z-index: -1;
-    }
+
   }
   .car-info + div {
     svg {
       margin: 0 0 0.25rem 0.25rem;
     }
+  }
+}
+
+.home-listing .price,
+.home-carousel-listing .price,
+.compare-column .price {
+  @include background-spacing($light-blue, white, 0.15rem, null, relative);
+  z-index: 10;
+  &::before {
+    @include create-before(1rem, 2rem, 0, null, null, -0.5rem, $light-blue);
+    transform: skew(-25deg, 0deg);
+    z-index: -1;
   }
 }

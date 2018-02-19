@@ -26,16 +26,6 @@ export const wholeInventoryData = (state=[], action) => {
             return state;
     }
 };
-
-export const wholeInventoryLinks = (state={}, action) => {
-    switch (action.type) {
-        case GET_INVENTORY_DATA:
-            return action.payload._links;
-        default:
-            return state;
-    }
-};
-
 export const individualCarData = (state={}, action) => {
     switch (action.type) {
         case "CAR_INFO":

@@ -4,14 +4,15 @@ import { InputLabel } from "../reusables/Form";
 import { BtnSubmit } from "../reusables/Buttons";
 
 const TestDrive = ({info, id}) => {
-    let _name, _phone, _email, _date;
+    let _name, _phone, _email, _date, _time;
 
     const submitHandle = e => {
         e.preventDefault();
+        console.log(_date.value)
     };
 
     return(
-        <form className="test-drive">
+        <form className="test-drive" onSubmit={submitHandle}>
             <div className="bg-black text-white px-3 px-md-4 py-3 py-md-4 d-flex">
                 <div className="mr-3">
                     <MdDirectionsCar size={45} color="#6b98e2"/>

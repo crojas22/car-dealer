@@ -5,7 +5,7 @@ import SearchOptions from "./inventory/SearchOptions";
 import SelectOptions from "./reusables/SelectOptions";
 import FaThLarge from "react-icons/lib/fa/th-large";
 import FaThList from "react-icons/lib/fa/th-list";
-import { fetchData, getData, searchOptionStatus } from "../actions";
+import { fetchData, setData, searchOptionStatus } from "../actions";
 import {
     fetchDataFunction, renderCarListing, renderVerticalListing, sliceArray
 } from "../functions/HelperFunctions";
@@ -23,16 +23,16 @@ class Inventory extends React.Component {
 
     sortInventory() {
         if (this._filter.value.endsWith("oldest first")){
-            this.props.getData({sortBy: "year", direction: "asc", index: 1}, UPDATE_INVENTORY_SORT);
+            this.props.setData({sortBy: "year", direction: "asc", index: 1}, UPDATE_INVENTORY_SORT);
             fetchDataFunction(this.props.url, "year", "asc", this.props.fetchData);
         } else if (this._filter.value.endsWith("lowest first")) {
-            this.props.getData({sortBy: "price", direction: "asc", index: 2}, UPDATE_INVENTORY_SORT);
+            this.props.setData({sortBy: "price", direction: "asc", index: 2}, UPDATE_INVENTORY_SORT);
             fetchDataFunction(this.props.url, "price", "asc", this.props.fetchData);
         } else if (this._filter.value.endsWith("highest first")) {
-            this.props.getData({sortBy: "price", direction: "desc", index: 3}, UPDATE_INVENTORY_SORT);
+            this.props.setData({sortBy: "price", direction: "desc", index: 3}, UPDATE_INVENTORY_SORT);
             fetchDataFunction(this.props.url, "price", "desc", this.props.fetchData);
         } else {
-            this.props.getData({sortBy: "year", direction: "desc", index: 0}, UPDATE_INVENTORY_SORT);
+            this.props.setData({sortBy: "year", direction: "desc", index: 0}, UPDATE_INVENTORY_SORT);
             fetchDataFunction(this.props.url, "year", "desc", this.props.fetchData);
         }
     }
@@ -53,7 +53,7 @@ class Inventory extends React.Component {
                         <div className="col-lg-9 col-sm-12">
                             <div className=" d-sm-flex mt-4 justify-content-sm-between align-items-center">
                                 <div className="v-available mb-3 mb-sm-0">
-                                    <span>{this.props.inventory.length} </span><span>VEHICLES AVAILABLE</span>
+                                    <span>{this.props.inventory.length} </span>VEHICLES AVAILABLE
                                 </div>
                                 <div className="filter-search-icon d-flex justify-content-between align-items-center">
                                     <div className="mr-sm-3">
@@ -64,10 +64,10 @@ class Inventory extends React.Component {
                                     </div>
                                     <div>
                                         <FaThLarge size={30} color={(this.props.layout ? "black":null)}
-                                                   onClick={() => this.props.getData(true, UPDATE_INVENTORY_LAYOUT)}/>
+                                                   onClick={() => this.props.setData(true, UPDATE_INVENTORY_LAYOUT)}/>
 
                                         <FaThList size={30} color={(!this.props.layout ? "black":null)}
-                                                  onClick={() => this.props.getData(false, UPDATE_INVENTORY_LAYOUT)}/>
+                                                  onClick={() => this.props.setData(false, UPDATE_INVENTORY_LAYOUT)}/>
                                     </div>
                                 </div>
                             </div>
@@ -95,8 +95,8 @@ class Inventory extends React.Component {
                                                                 selectedOptions = [...arr];
                                                             uri[each.index] = null;
                                                             selectedOptions[each.index] = null;
-                                                            this.props.getData(uri, REMOVE_FROM_URL);
-                                                            this.props.getData(selectedOptions, REMOVE_OPTIONS_SELECTED);
+                                                            this.props.setData(uri, REMOVE_FROM_URL);
+                                                            this.props.setData(selectedOptions, REMOVE_OPTIONS_SELECTED);
                                                             this.props.searchOptionStatus(false, each.selectedType);
                                                             fetchDataFunction(uri, this.props.sort.sortBy, this.props.sort.direction, this.props.fetchData)}}>
                                                             X
@@ -138,7 +138,6 @@ class Inventory extends React.Component {
 const mapStateToProps = state => {
     return {
         inventory: state.wholeInventoryData,
-        links: state.wholeInventoryLinks,
         url: state.inventorySearchURL,
         sort: state.inventorySortInfo,
         layout: state.inventoryLayout,
@@ -149,7 +148,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return bindActionCreators({
         fetchData,
-        getData,
+        setData,
         searchOptionStatus
     }, dispatch)
 };

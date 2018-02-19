@@ -5,6 +5,7 @@ import Navigation from "./Navigation";
 import Inventory from "./Inventory";
 import Footer from "./reusables/Footer";
 import IndividualCarPage from "./IndividualCarPage";
+import Compare from "./Compare";
 
 class App extends Component {
     constructor(props) {
@@ -46,6 +47,7 @@ class App extends Component {
                                           changePage={this.changePageNumber} resetPage={this.resetPage}/>)
                     }/>
                     <Route exact path='/inventory/:car' render={props => (<IndividualCarPage {...props}/>)}/>
+                    <Route exact path="/compare" render={() => <Compare /> }/>
                 </Switch>
                 <Footer />
             </div>

@@ -2,41 +2,8 @@
   h2 > svg {
     margin: 0 0.50rem 0.30rem 0;
   }
-  form .form-row .col-md-6 {
-    user-select: none;
-    & > div[class^="bg-grey"] {
-      cursor: pointer;
-    }
-    .title {
-      cursor: pointer;
-      & > div > svg {
-        margin-bottom: 0.25rem;
-      }
-    }
-    .not-selected {
-      & > span:first-of-type {
-        cursor: pointer;
-        padding-bottom: 0.50rem;
-        &:hover {
-          color: $light-blue;
-        }
-      }
-    }
-    & > div > div[class^="bg-light"],
-    .not-selected,
-    .selected {
-      @include flex-center(flex, space-between, center);
-    }
-    & > div > div:nth-of-type(2) {
-      position: relative;
-      & > div[class^="px-2"] {
-        background-color: #dfe2e7;
-        z-index: 100;
-        position: absolute;
-        width: 100%;
-      }
-    }
-  }
+
+
   .call-banner {
     margin: 0 0.05rem;
     @include flex-center(flex, center, center);

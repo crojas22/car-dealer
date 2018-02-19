@@ -15,7 +15,7 @@ const initialState = {
     option5: false
 };
 
-export const inventoryUI = (state = initialState,action) => {
+export const inventoryUI = (state = initialState, action) => {
     switch (action.type) {
         case OPTION1:
             return Object.assign({}, state, {

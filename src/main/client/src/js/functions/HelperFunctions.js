@@ -79,20 +79,3 @@ export const resetFunction = (url, sort, resetData, fetchData) => {
     resetData(RESET_OPTION_SELECTED);
     fetchDataFunction(uri.splice(0,1), sort.sortBy, sort.direction, fetchData)
 };
-
-// let uri = [...url];
-// resetData(RESET_URL);
-// resetData(RESET_SELECTED);
-// resetData(RESET_OPTIONS);
-// resetData(RESET_OPTION_SELECTED);
-// resetPage();
-// fetchDataFunction(uri.splice(0,1), sort.sortBy, sort.direction, fetchData)
-
-
-//searchinventory
-// let uri = [...url];
-// resetData(RESET_URL);
-// resetData(RESET_SELECTED);
-// resetData(RESET_OPTIONS);
-// resetData(RESET_OPTION_SELECTED);
-// fetchDataFunction(uri.splice(0,1), sort.sortBy, sort.direction, fetchData)

@@ -2,18 +2,18 @@ import React from 'react';
 import { connect } from "react-redux";
 import { bindActionCreators } from 'redux';
 import FaCheckCircle from "react-icons/lib/fa/check-circle";
-import { fetchData, getData } from "../../actions";
+import { fetchData, setData } from "../../actions";
 import { ADD_OPTION_SELECTED } from "../../types/actionTypes";
 import { clickHandleHelper, displayInfo } from "../../functions/HelperFunctions";
 import OnOff from "../../hoc/OnOff";
 
-const AdditionalSearchOption = ({active, url, index, getData, selectedType, clickHandle, sort, fetchData, search, color, title, counter, optionsSelected}) => {
+const AdditionalSearchOption = ({active, url, index, setData, selectedType, clickHandle, sort, fetchData, search, color, title, counter, optionsSelected}) => {
 
     const clickHandles = (e, variable) => {
         if (!url.join("").includes(variable)) {
-            getData(e.target.innerHTML, selectedType);
+            setData(e.target.innerHTML, selectedType);
             clickHandle();
-            clickHandleHelper(e, variable, url, optionsSelected, index, title, selectedType, getData, ADD_OPTION_SELECTED, sort, fetchData);
+            clickHandleHelper(e, variable, url, optionsSelected, index, title, selectedType, setData, ADD_OPTION_SELECTED, sort, fetchData);
         }
     };
 
@@ -22,7 +22,7 @@ const AdditionalSearchOption = ({active, url, index, getData, selectedType, clic
     };
 
     return(
-        <div className="additional-search col-md-6 col-sm-6 col-lg-12 mt-4 px-2">
+        <div className="additional-search col-md-6 col-sm-6 col-lg-12 mt-4 px-1 px-sm-2 px-lg-1">
             <div className="d-flex justify-content-between py-2 px-3 bg-light border" onClick={clickHandle}>
                 <div className="d-flex">
                     {
@@ -81,7 +81,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return bindActionCreators({
         fetchData,
-        getData
+        setData
     }, dispatch)
 };
 

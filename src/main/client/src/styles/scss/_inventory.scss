@@ -24,6 +24,7 @@
 
   .v-available {
     font-size: larger;
+    white-space: nowrap;
     span:first-of-type {
       color: $primary-color;
       font-weight: bold;

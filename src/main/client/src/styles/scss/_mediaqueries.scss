@@ -13,6 +13,12 @@
     height: 30vh;
   }
 
+  .compare .compare-column {
+    td:first-of-type {
+      display: table-cell;
+    }
+  }
+
 }
 
 
@@ -26,6 +32,12 @@
 
   .image-background {
     height: 50vh;
+  }
+
+  .compare .compare-column {
+    td:first-of-type {
+      display: none;
+    }
   }
 }
 

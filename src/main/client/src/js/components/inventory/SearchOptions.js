@@ -21,28 +21,28 @@ const SearchOptions = ({array, resetData, fetchData, url, status, selected, rese
     return(
         <div>
             <form >
-                <div className="p-4 mb-2 text-center">
+                <div className="p-4 mb-3 text-center">
                     <h5><MdDirectionsCar size={30}/>Search Options</h5>
                 </div>
                 <div className="container-fluid">
                     <div className="row">
                         <SearchOptionsCategories title="Make" search="carManufacturer" selected={selected.option1} index={1}
-                                                 selectedType={OPTION1SELECTED} classes="col-md-6 col-sm-6 col-lg-12 mb-2"
+                                                 selectedType={OPTION1SELECTED} classes="col-md-6 col-sm-6 col-lg-12 mb-3"
                                                  counter={counter} active={status.option1} option={OPTION1}/>
 
-                        <SearchOptionsCategories title="Condition" search="carCondition" classes="col-md-6 col-sm-6 col-lg-12 mb-2"
+                        <SearchOptionsCategories title="Condition" search="carCondition" classes="col-md-6 col-sm-6 col-lg-12 mb-3"
                                                  selectedType={OPTION2SELECTED} selected={selected.option2} index={2}
                                                  counter={counter} active={status.option2} option={OPTION2}/>
 
-                        <SearchOptionsCategories title="Model" search="model" classes="col-md-6 col-sm-6 col-lg-12 mb-2"
+                        <SearchOptionsCategories title="Model" search="model" classes="col-md-6 col-sm-6 col-lg-12 mb-3"
                                                  selectedType={OPTION3SELECTED} selected={selected.option3} index={3}
                                                  counter={counter} active={status.option3} option={OPTION3}/>
 
-                        <SearchOptionsCategories title="Year" search="year" classes="col-md-6 col-sm-6 col-lg-12 mb-2"
+                        <SearchOptionsCategories title="Year" search="year" classes="col-md-6 col-sm-6 col-lg-12 mb-3"
                                                  selectedType={OPTION4SELECTED} selected={selected.option4} index={4}
                                                  counter={counter} active={status.option4} option={OPTION4}/>
 
-                        <SearchOptionsCategories title="Body type" search="bodyType" classes="col-md-6 col-sm-6 col-lg-12 mb-2"
+                        <SearchOptionsCategories title="Body type" search="bodyType" classes="col-md-6 col-sm-6 col-lg-12 mb-3"
                                                  selectedType={OPTION5SELECTED} selected={selected.option5} index={5}
                                                  counter={counter} active={status.option5} option={OPTION5}/>
                     </div>
@@ -56,7 +56,7 @@ const SearchOptions = ({array, resetData, fetchData, url, status, selected, rese
             <div className="container-fluid">
                 <div className="row mb-lg-4">
                     <AdditionalSearchOption counter={counter} selectedType={OPTION1_COLOR} color={color.option1}
-                                            search="exteriorColor" index={6} title="Exterior Color"/>
+                                            search="exteriorColor" index={6} title="Exterior Color" />
                     <AdditionalSearchOption counter={counter} selectedType={OPTION2_COLOR} color={color.option2}
                                             search="interiorColor" index={7} title="Interior Color"/>
                 </div>

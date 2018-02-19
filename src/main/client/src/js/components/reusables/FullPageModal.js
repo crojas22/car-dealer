@@ -1,15 +1,15 @@
 import React from 'react';
 import OnOff from "../../hoc/OnOff";
 
-const FullPageModal = ({active, InnerComponent, TriggerComponent, clickOut, clickIn, info, id}) => {
+const FullPageModal = props => {
     return(
         <div>
-            <TriggerComponent click={clickIn}/>
+            <props.TriggerComponent click={props.clickIn} carInfo={props.carInfo} setData={props.setData} compare={props.compare}/>
             {
-                active ?
-                    <div className="modal" onClick={clickOut}>
+                props.active ?
+                    <div className="modal" onClick={props.clickOut}>
                         <div className="content">
-                            <InnerComponent info={info} id={id}/>
+                            <props.InnerComponent info={props.info} id={props.carInfo.id}/>
                         </div>
                     </div>
                     : null
