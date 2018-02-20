@@ -118,3 +118,11 @@
     text-decoration: none;
   }
 }
+
+.individual-car-page .features-tab,
+.compare {
+  svg {
+    color: $primary-color;
+    margin: 0 0.25rem 0.25rem 0;
+  }
+}

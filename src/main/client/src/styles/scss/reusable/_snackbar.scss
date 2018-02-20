@@ -1,0 +1,28 @@
+.inventory .snack-bar,
+.individual-car-page .snack-bar {
+  text-align: center;
+  background-color: rgba(0,0,0,0.9);
+  min-width: 15rem;
+  font-size: 0.9rem;
+  color: white;
+  padding: 1rem;
+  position: fixed;
+  bottom: 1rem;
+  left: 50%;
+  z-index: 2000;
+  visibility: hidden;
+  &.show {
+    visibility: visible;
+    animation: fadein 0.5s, fadeout 0.5s 1.5s;
+  }
+}
+
+@keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 1rem; opacity: 1;}
+}
+
+@keyframes fadeout {
+  from {bottom: 1rem; opacity: 1;}
+  to {bottom: 0; opacity: 0;}
+}

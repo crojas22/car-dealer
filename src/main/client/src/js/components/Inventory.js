@@ -14,6 +14,7 @@ import {
     REMOVE_FROM_URL, REMOVE_OPTIONS_SELECTED, UPDATE_INVENTORY_LAYOUT,
     UPDATE_INVENTORY_SORT
 } from "../types/actionTypes";
+import { SnackBar } from "./reusables/SnakBar";
 
 class Inventory extends React.Component {
     componentDidMount() {
@@ -130,6 +131,7 @@ class Inventory extends React.Component {
                         </div>
                     </div>
                 </div>
+                <SnackBar message={this.props.snackBar.message} show={this.props.snackBar.show}/>
             </div>
         )
     }
@@ -141,7 +143,8 @@ const mapStateToProps = state => {
         url: state.inventorySearchURL,
         sort: state.inventorySortInfo,
         layout: state.inventoryLayout,
-        optionsSelected: state.optionsSelected
+        optionsSelected: state.optionsSelected,
+        snackBar: state.snackBarStatus
     }
 };
 

@@ -8,6 +8,7 @@ import {
     inventoryUISelected, optionsSelected
 } from "./inventoryUI";
 import { compareVehicles } from "./compare";
+import { snackBarStatus } from "./snackbar";
 
 const reducer = combineReducers({
     newCarData,
@@ -21,7 +22,8 @@ const reducer = combineReducers({
     inventoryLayout,
     inventoryColorSelected,
     optionsSelected,
-    compareVehicles
+    compareVehicles,
+    snackBarStatus
 });
 
 export default reducer;

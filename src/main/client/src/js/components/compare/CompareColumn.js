@@ -1,11 +1,12 @@
 import React from 'react';
 import { TrTd } from "../reusables/Div";
 import CompareTop from "./CompareTop";
+import { renderFeatures } from "../../functions/HelperFunctions";
 
 const CompareColumn = props => (
     <div className="compare-column col-sm-3 col-md-3">
         <CompareTop {...props} classes="d-block d-sm-none"/>
-        <table className="mb-2 table">
+        <table className="mb-0 table">
             <tbody>
                 <TrTd title="MAKE" value={props.carManufacturer}/>
                 <TrTd title="MODEL" value={props.model}/>
@@ -20,6 +21,9 @@ const CompareColumn = props => (
                 <TrTd title="VIN" value={props.vinNumber}/>
             </tbody>
         </table>
+        {
+            renderFeatures(props.features, "d-flex flex-wrap d-sm-block border-top pt-2", "mb-2 mr-3 mr-sm-0")
+        }
     </div>
 );
 

@@ -87,3 +87,14 @@
     }
   }
 }
+
+.bg-light-blue {
+  background-color: $light-blue;
+  color: white;
+  &:hover {
+    color: white !important;
+  }
+  svg {
+    color: white !important;
+  }
+}

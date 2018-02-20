@@ -5,6 +5,7 @@ import MdRemoveCircle from "react-icons/lib/md/remove-circle";
 import { NavLink } from "react-router-dom";
 import { BtnLink } from "./Buttons";
 import { ADD_TO_COMPARE, REMOVE_FROM_COMPARE } from "../../types/actionTypes";
+import { snackBarShow } from "../../functions/HelperFunctions";
 
 export const RenderLinks = ({links, classUL, classA, clickHandle, active}) => (
     <ul className={classUL}>
@@ -35,21 +36,29 @@ export const RenderCarInfoLinks = props => (
                 <GoCalendar/> Schedule a test drive
             </a>
         </li>
-        <li>
-            {
-                props.compare.filter(each => each.id === props.carInfo.id).length > 0 ?
-                    <a onClick={() => props.setData(props.carInfo, REMOVE_FROM_COMPARE)}>
+        {
+            props.compare.filter(each => each.id === props.carInfo.id).length > 0 ?
+                <li className="bg-light-blue">
+                    <a onClick={() => {
+                        props.setData(props.carInfo, REMOVE_FROM_COMPARE);
+                        snackBarShow(props.setData, `${props.carInfo.carManufacturer} ${props.carInfo.model} REMOVED`)
+                    }}>
                         <MdRemoveCircle size={18}/> from Compare
                     </a>
-                    :
+                </li>
+                :
+                <li>
                     <a onClick={() => {
-                        if (props.compare.length < 3) props.setData(props.carInfo, ADD_TO_COMPARE);
-                        else console.log("compare full")
+                        if (props.compare.length < 3) {
+                            props.setData(props.carInfo, ADD_TO_COMPARE);
+                            snackBarShow(props.setData, `${props.carInfo.carManufacturer} ${props.carInfo.model} ADDED`)
+                        }
+                        else snackBarShow(props.setData, "MAX NUMBER OF CARS IN COMPARE")
                     }}>
                         <MdAddCircle size={18}/> to Compare
                     </a>
+                </li>
 
-            }
-        </li>
+        }
     </ul>
 );

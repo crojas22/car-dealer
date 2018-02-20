@@ -9,6 +9,7 @@ import { renderFeatures } from "../functions/HelperFunctions";
 import ContactForm from "./individualCar/ContactForm";
 import TestDrive from "./inventory/TestDrive";
 import FullPageModal from "./reusables/FullPageModal";
+import { SnackBar } from "./reusables/SnakBar";
 
 class IndividualCarPage extends React.Component {
     constructor(props) {
@@ -92,7 +93,8 @@ class IndividualCarPage extends React.Component {
                         </div>
                         <div className="container-fluid features-tab mb-3">
                             {
-                                this.state.currentTabActive === "Vehicle Features" ? renderFeatures(features) :
+                                this.state.currentTabActive === "Vehicle Features" ?
+                                    renderFeatures(features, "row flex-wrap", "col-sm-4 px-0 pt-2") :
                                     this.state.currentTabActive === "Contact" ?
                                         <ContactForm info={this.props.info} submit={this.handleSubmit} {...this.state}
                                                      clickHandle={() => this.setState({showAlert: false, message: ""})}/> : null
@@ -136,6 +138,7 @@ class IndividualCarPage extends React.Component {
                         </div>
                     </div>
                 </div>
+                <SnackBar message={this.props.snackBar.message} show={this.props.snackBar.show}/>
             </div>
         )
     }
@@ -144,7 +147,8 @@ class IndividualCarPage extends React.Component {
 const mapStateToProps = state => {
     return {
         info : state.individualCarData,
-        compare : state.compareVehicles
+        compare : state.compareVehicles,
+        snackBar: state.snackBarStatus
     }
 };
 

@@ -3,7 +3,8 @@ import CarListing from "../components/reusables/CarListing";
 import CarListingVertical from "../components/inventory/CarListingVertical";
 import FaCheckCircle from "react-icons/lib/fa/check-circle";
 import {
-    ADD_TO_URL, GET_INVENTORY_DATA, RESET_OPTION_SELECTED, RESET_OPTIONS, RESET_SELECTED,
+    ADD_MESSAGE_SNACKBAR,
+    ADD_TO_URL, GET_INVENTORY_DATA, RESET_MESSAGE_SNACKBAR, RESET_OPTION_SELECTED, RESET_OPTIONS, RESET_SELECTED,
     RESET_URL
 } from "../types/actionTypes";
 
@@ -17,10 +18,10 @@ export const renderCarListing = (array, classes, mainClass) => (
 
 export const renderVerticalListing = (array=[]) => array.map((each, index) => <CarListingVertical key={index} {...each}/>);
 
-export const renderFeatures = (array=[]) => (
-    <div className="row flex-wrap">
+export const renderFeatures = (array=[], classesA, classesB) => (
+    <div className={classesA}>
         {
-            array.map((each, index) => <div key={index} className="col-sm-4 px-0 pt-2"><FaCheckCircle/>{each.description}</div>)
+            array.map((each, index) => <div key={index} className={classesB}><FaCheckCircle/>{each.description}</div>)
         }
     </div>
 );
@@ -78,4 +79,11 @@ export const resetFunction = (url, sort, resetData, fetchData) => {
     resetData(RESET_OPTIONS);
     resetData(RESET_OPTION_SELECTED);
     fetchDataFunction(uri.splice(0,1), sort.sortBy, sort.direction, fetchData)
+};
+
+export const snackBarShow = (setData, message) => {
+    setData({show: true, message}, ADD_MESSAGE_SNACKBAR);
+    setTimeout(() => {
+        setData({show:false, message: ""}, RESET_MESSAGE_SNACKBAR);
+    }, 2000);
 };

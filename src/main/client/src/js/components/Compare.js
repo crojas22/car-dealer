@@ -82,6 +82,13 @@ const CompareInfo = ({array}) => (
                     </tr>
                 ))
             }
+            <tr>
+                <td>
+                    <h6>
+                        FEATURES
+                    </h6>
+                </td>
+            </tr>
             </tbody>
         </table>
     </div>
