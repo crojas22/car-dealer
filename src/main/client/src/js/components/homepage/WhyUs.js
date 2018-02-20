@@ -31,7 +31,7 @@ const WhyUs = () => {
     ];
 
     return(
-        <div className="why-us container-fluid py-4 bg-light">
+        <div className="why-us container-fluid py-4 bg-light px-lg-5">
             <div className="text-center">
                 <h2 className="font-weight-bold mb-lg-5">WHY CHOOSE US</h2>
             </div>

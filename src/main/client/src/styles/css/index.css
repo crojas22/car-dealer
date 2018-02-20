@@ -57,12 +57,12 @@
         display: inline-block; } }
 
 @media only screen and (min-width: 768px) {
-  .why-us div div:nth-of-type(n+2)::before {
+  .why-us > div:nth-of-type(2) > div:nth-of-type(n+2)::before {
     content: '';
     position: absolute;
     width: 1px;
-    height: 70%;
-    bottom: 15%;
+    height: 60%;
+    bottom: 20%;
     left: 0;
     background-color: #ccc; }
   .individual-car-page .features-tab .contact-form > div:first-of-type ::before {

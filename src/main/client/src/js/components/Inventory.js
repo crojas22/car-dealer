@@ -44,7 +44,7 @@ class Inventory extends React.Component {
                 <div>
                     <h2 className="text-white p-3">Inventory</h2>
                 </div>
-                <div className="container-fluid">
+                <div className="container-fluid px-xl-5">
                     <div className="row">
                         <div className="search-options col-lg-3">
 

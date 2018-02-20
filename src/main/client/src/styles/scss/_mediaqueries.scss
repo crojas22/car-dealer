@@ -78,8 +78,8 @@
 
 
 @media only screen and (min-width: 768px) {
-  .why-us div div:nth-of-type(n+2)::before {
-    @include create-before(1px, 70%, null, null, 15%, 0, $light-grey);
+  .why-us > div:nth-of-type(2) > div:nth-of-type(n+2)::before {
+    @include create-before(1px, 60%, null, null, 20%, 0, $light-grey);
   }
 
   .individual-car-page .features-tab .contact-form > div:first-of-type ::before {

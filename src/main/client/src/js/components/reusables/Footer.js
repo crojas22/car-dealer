@@ -3,7 +3,7 @@ import SocialMediaLinks from "./SocialMediaLinks";
 
 const Footer = () => {
     return(
-        <div className="footer container-fluid bg-black">
+        <div className="footer container-fluid bg-black px-lg-5">
             <div className="row">
                 <div className="col-sm-4 p-4">
                     <h6>SALES HOURS</h6>

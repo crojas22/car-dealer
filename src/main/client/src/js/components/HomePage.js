@@ -45,7 +45,7 @@ class HomePage extends React.Component {
                                      }}/>
                     </div>
                 </div>
-                <div className="container-fluid mb-3">
+                <div className="container-fluid mb-3 px-lg-5">
                     <RenderCarListing newCars={this.props.newCars} usedCars={this.props.usedCars}
                         currentTab={this.state.currentTabActive}/>
 
