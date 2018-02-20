@@ -30,7 +30,7 @@ const TestDrive = ({info, id}) => {
             </div>
             <div className="px-3 px-md-4 py-3 py-md-4">
                 <div className="form-row">
-                    <InputLabel _for="name" divClass="col-md-6 pr-md-3" inputRef={input => _name = input} title="Name:"/>
+                    <InputLabel _for="name" divClass="col-md-6 pr-md-3"  inputRef={input => _name = input} title="Name:"/>
 
                     <InputLabel _for="phone" divClass="col-md-6" inputRef={input => _phone = input} title="Phone:" type="tel"/>
                 </div>

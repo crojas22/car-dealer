@@ -10,6 +10,7 @@ import ContactForm from "./individualCar/ContactForm";
 import TestDrive from "./inventory/TestDrive";
 import FullPageModal from "./reusables/FullPageModal";
 import { SnackBar } from "./reusables/SnakBar";
+import Calculator from "./individualCar/Calculator";
 
 class IndividualCarPage extends React.Component {
     constructor(props) {
@@ -18,7 +19,8 @@ class IndividualCarPage extends React.Component {
             currentTabActive: "Vehicle Features",
             showAlert: false,
             success: false,
-            message: ""
+            message: "",
+            result: null
         };
 
         this.changeMainPic = this.changeMainPic.bind(this);
@@ -61,7 +63,7 @@ class IndividualCarPage extends React.Component {
                                 title
                             }
                         </h4>
-                        <FullPageModal info={`${year} ${carManufacturer} ${model}`} InnerComponent={TestDrive} compare={this.props.compare}
+                        <FullPageModal info={title} InnerComponent={TestDrive} compare={this.props.compare}
                                        TriggerComponent={RenderCarInfoLinks} id={id} carInfo={this.props.info} setData={this.props.setData}/>
                         <div>
                             <div>
@@ -123,7 +125,7 @@ class IndividualCarPage extends React.Component {
                                 </tbody>
                             </table>
                         </div>
-                        <div className="my-3 d-flex justify-content-center">
+                        <div className="gas my-3 d-flex justify-content-center">
                             <div>
                                 <span>{this.props.info.mpgStreet}</span>
                                 <span>CITY MPG</span>
@@ -136,6 +138,7 @@ class IndividualCarPage extends React.Component {
                                 <span>HWY MPG</span>
                             </div>
                         </div>
+                        <Calculator price={this.props.info.price} result={this.state.result} submit={result => this.setState({result: result})}/>
                     </div>
                 </div>
                 <SnackBar message={this.props.snackBar.message} show={this.props.snackBar.show}/>

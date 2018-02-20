@@ -42,9 +42,7 @@
     }
 
     // Gas info
-    & > div:nth-of-type(2) {
-      padding: 0.80rem 0.90rem;
-      border: 3px solid $light-silver;
+    & .gas {
       & > div:nth-of-type(2) {
         margin: 0 1rem;
         svg {
@@ -72,7 +70,40 @@
       }
     }
 
+    .gas,
+    .calculator {
+      padding: 1rem 0.90rem;
+      border: 3px solid $light-silver;
+    }
+
+
+    .calculator {
+      h5 {
+        font-weight: normal;
+      }
+      label {
+        color: gray;
+      }
+      svg {
+        @include height-width(2rem, 2rem);
+        color: $primary-color;
+        margin: 0.20rem 0.50rem 0;
+      }
+      .result {
+        &::before {
+          @include create-before(0,0,-0.5rem,null,null,1.5rem,null);
+          display: block;
+          border-left: 1rem solid transparent;
+          border-right: 1rem solid transparent;
+          border-bottom: 1rem solid $light-blue;
+        }
+        span {
+          font-size: 0.90rem;
+        }
+      }
+    }
   }
+
 
   .features-tab {
     svg {
