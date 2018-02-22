@@ -1,7 +1,7 @@
 package com.dealer.app.web.controller;
 
-import com.dealer.app.customer.CustomerInquiries;
-import com.dealer.app.customer.CustomerInquiriesService;
+import com.dealer.app.inquiry.Message;
+import com.dealer.app.inquiry.MessageService;
 import com.dealer.app.vehicle.VehicleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,21 +16,21 @@ import javax.validation.Valid;
 
 @Controller
 @RequestMapping(path = "/api/v1")
-public class InquiriesController {
+public class MessageController {
 
-    private final CustomerInquiriesService inquiriesService;
+    private final MessageService inquiriesService;
     private final VehicleService vehicleService;
 
     @Autowired
-    public InquiriesController(CustomerInquiriesService inquiriesService, VehicleService vehicleService) {
+    public MessageController(MessageService inquiriesService, VehicleService vehicleService) {
         this.inquiriesService = inquiriesService;
         this.vehicleService = vehicleService;
     }
 
-    @RequestMapping(value = "/add/inquiries/{id}", method = RequestMethod.POST)
-    public ResponseEntity<Void> createInquiries(@Valid @RequestBody CustomerInquiries inquiries, @PathVariable Integer id) {
+    @RequestMapping(value = "/message/inquiry/{id}", method = RequestMethod.POST)
+    public ResponseEntity<Void> createMessage(@Valid @RequestBody Message message, @PathVariable Integer id) {
         try {
-            this.inquiriesService.createInquirie(inquiries, this.vehicleService.getVehicle(id));
+            this.inquiriesService.createMessage(message, this.vehicleService.getVehicle(id));
             return ResponseEntity.status(HttpStatus.CREATED).build();
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();

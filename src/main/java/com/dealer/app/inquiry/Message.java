@@ -1,4 +1,4 @@
-package com.dealer.app.customer;
+package com.dealer.app.inquiry;
 
 import com.dealer.app.vehicle.Vehicle;
 import lombok.Getter;
@@ -14,7 +14,7 @@ import java.time.format.DateTimeFormatter;
 @Entity
 @Getter
 @Setter
-public class CustomerInquiries {
+public class Message {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
@@ -36,14 +36,14 @@ public class CustomerInquiries {
         timeCreated = LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME);
     }
 
-    protected CustomerInquiries() {
+    protected Message() {
     }
 
-    public CustomerInquiries(String name,
-                             String phone,
-                             String message,
-                             String email,
-                             Vehicle vehicleInquiringAbout) {
+    public Message(String name,
+                   String phone,
+                   String message,
+                   String email,
+                   Vehicle vehicleInquiringAbout) {
         this.name = name;
         this.phone = phone;
         this.message = message;
