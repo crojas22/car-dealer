@@ -1,7 +1,7 @@
 package com.dealer.app.web.controller;
 
-import com.dealer.app.inquiry.Message;
-import com.dealer.app.inquiry.MessageService;
+import com.dealer.app.message.Message;
+import com.dealer.app.message.MessageService;
 import com.dealer.app.vehicle.VehicleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

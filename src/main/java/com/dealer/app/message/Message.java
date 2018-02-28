@@ -1,4 +1,4 @@
-package com.dealer.app.inquiry;
+package com.dealer.app.message;
 
 import com.dealer.app.vehicle.Vehicle;
 import lombok.Getter;
