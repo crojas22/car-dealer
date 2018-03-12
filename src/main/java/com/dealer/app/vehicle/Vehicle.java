@@ -1,13 +1,16 @@
 package com.dealer.app.vehicle;
 
 import com.dealer.app.dealer.Dealer;
+import com.dealer.app.user.FacebookUser;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -42,7 +45,12 @@ public class Vehicle {
     @JsonIgnore
     private Dealer dealer;
 
+    @ManyToMany(mappedBy = "favorites")
+    @JsonIgnore
+    private Set<FacebookUser> fbUsers;
+
     {
+        fbUsers = new HashSet<>();
         features = new ArrayList<>();
     }
 
@@ -97,5 +105,8 @@ public class Vehicle {
     public void addFeatures(Feature feature) {
         feature.setVehicle(this);
         features.add(feature);
+    }
+    public void addFbUserFavorite(FacebookUser user) {
+        fbUsers.add(user);
     }
 }

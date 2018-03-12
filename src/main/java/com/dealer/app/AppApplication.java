@@ -1,9 +1,8 @@
 package com.dealer.app;
 
-import com.dealer.app.dealer.Dealer;
-import com.dealer.app.vehicle.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.security.oauth2.client.EnableOAuth2Sso;
 
 @SpringBootApplication
 public class AppApplication {
