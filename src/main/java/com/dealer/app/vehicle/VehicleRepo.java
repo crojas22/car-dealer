@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 @Repository
-@CrossOrigin("https://dealer-back.herokuapp.com/")
+@CrossOrigin("https://dealer-back.herokuapp.com")
 @RepositoryRestResource(excerptProjection = VehicleProjection.class)
 public interface VehicleRepo extends PagingAndSortingRepository<Vehicle, Integer>, QueryDslPredicateExecutor<Vehicle> {
 
